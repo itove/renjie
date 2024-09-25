@@ -33,7 +33,7 @@ class Image
     
     public function __toString(): string
     {
-        return $this->image;
+        return $this->title ? $this->title : $this->image;
     }
 
     public function getId(): ?int
