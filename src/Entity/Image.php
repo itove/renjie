@@ -27,6 +27,9 @@ class Image
     #[ORM\ManyToOne(inversedBy: 'images')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Node $node = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $title = null;
     
     public function __toString(): string
     {
@@ -76,5 +79,17 @@ class Image
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
     }
 }
