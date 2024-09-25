@@ -118,15 +118,6 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::subMenu($p->getName(), 'fa fa-file-image-o')->setSubItems($items);
         }
         
-        $footer = $this->doctrine->getRepository(Region::class)->findOneBy(['label' => 'footer']);
-        $video = $this->doctrine->getRepository(Region::class)->findOneBy(['label' => 'video']);
-        yield MenuItem::linkToCrud('Footer', "fas fa-{$footer->getIcon()}", Node::class)
-            ->setQueryParameter('region', $footer->getId())
-        ;
-        yield MenuItem::linkToCrud('Video', "fas fa-{$video->getIcon()}", Node::class)
-            ->setQueryParameter('region', $video->getId())
-        ;
-
         yield MenuItem::section('');
         yield MenuItem::linkToCrud('Order Management', 'fas fa-book-open', Order::class);
         yield MenuItem::linkToCrud('Refund Records', 'fas fa-book-open', Refund::class);
