@@ -28,16 +28,16 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 class DashboardController extends AbstractDashboardController
 {
     private $doctrine;
-    private $nodes;
+    // private $nodes;
     private $conf;
-    private $regions;
+    // private $regions;
 
     public function __construct(ManagerRegistry $doctrine)
     {
       $this->doctrine = $doctrine;
-      $this->nodes = $doctrine->getRepository(Node::class);
-      $this->conf = $doctrine->getRepository(Conf::class)->find(1);
-      $this->regions = $doctrine->getRepository(Region::class)->findAll();
+      // $this->nodes = $doctrine->getRepository(Node::class);
+      $this->conf = $doctrine->getRepository(Conf::class)->findOneBy([], ['id' => 'ASC']);
+      // $this->regions = $doctrine->getRepository(Region::class)->findAll();
     }
     
     #[Route('/admin', name: 'admin')]
@@ -119,7 +119,7 @@ class DashboardController extends AbstractDashboardController
         }
         
         yield MenuItem::section('');
-        if ($_ENV['IS_MULTILINGUAL']) {
+        if ($_ENV['HAVE_ORDERS']) {
             yield MenuItem::linkToCrud('Order Management', 'fas fa-book-open', Order::class);
             yield MenuItem::linkToCrud('Refund Records', 'fas fa-book-open', Refund::class);
         }
@@ -145,12 +145,12 @@ class DashboardController extends AbstractDashboardController
             // yield MenuItem::linkToCrud('Tag Management', 'fas fa-list', Tag::class);
             yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class);
             yield MenuItem::linkToCrud('User Management', 'fas fa-users', User::class);
-            if ($_ENV['IS_MULTILINGUAL']) {
+            if ($_ENV['IS_MULTILINGUAL'] || ! $this->conf) {
                 yield MenuItem::linkToCrud('Settings', 'fas fa-cog', Conf::class);
             } else {
                 yield MenuItem::linkToCrud('Settings', 'fas fa-cog', Conf::class)
                     ->setAction('detail')
-                    ->setEntityId(1)
+                    ->setEntityId($this->conf->getId())
                 ;
             }
             yield MenuItem::linkToUrl('Changelog', 'fas fa-note-sticky', '/changelog/');
