@@ -119,8 +119,10 @@ class DashboardController extends AbstractDashboardController
         }
         
         yield MenuItem::section('');
-        yield MenuItem::linkToCrud('Order Management', 'fas fa-book-open', Order::class);
-        yield MenuItem::linkToCrud('Refund Records', 'fas fa-book-open', Refund::class);
+        if ($_ENV['IS_MULTILINGUAL']) {
+            yield MenuItem::linkToCrud('Order Management', 'fas fa-book-open', Order::class);
+            yield MenuItem::linkToCrud('Refund Records', 'fas fa-book-open', Refund::class);
+        }
         yield MenuItem::linkToCrud('Menu Management', 'fas fa-link', Menu::class);
         yield MenuItem::linkToCrud('Tag Management', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Category Management', 'fas fa-table-cells-large', Category::class);
