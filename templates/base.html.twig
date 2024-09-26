@@ -17,12 +17,12 @@
         {% endblock %}
     </head>
     <body>
-        {% block nav %}
+        {% block header %}
         {{ include('header.html.twig') }}
         {% endblock %}
 
-        {% block breadcrumbs %}
-        {% endblock %}
+        {% block breadcrumbs %} {% endblock %}
+
         {% block main %} {% endblock %}
 
         {% block footer %}
@@ -30,6 +30,7 @@
         {% endblock %}
 
         <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% block javascript %} {% endblock %}
     </body>
 </html>
