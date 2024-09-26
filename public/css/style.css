@@ -1,6 +1,38 @@
+body{
+  background-color: #fff !important;
+}
 .header{
   .logo{
     width: 16rem;
+  }
+}
+.footer{
+  background: url("/images/footer_bg.jpg");
+  color: #fff;
+  .nav-link{
+    color: #fff !important;
+  }
+  .part-3{
+    border-color: #626262 !important;
+  }
+  .part-2{
+    border-bottom: #c8000a .3rem solid;
+    width: 5.5rem;
+  }
+  .part-1{
+    padding-bottom: 2.3rem;
+    font-weight: 900;
+    font-size: 1.3rem;
+    .title{
+      color: #c8000a;
+    }
+    img{
+      width: 64px;
+      margin-left: .6rem;
+    }
+  }
+  .copyright{
+    color: #8f8f8f;
   }
 }
 .navbar{
