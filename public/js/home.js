@@ -54,11 +54,11 @@ const activeBtn = (id) => {
     if (i.dataset.id === id) {
       i.classList.remove('btn-light')
       i.classList.add('btn-danger')
-      i.classList.add('active')
+      // i.classList.add('active')
     } else {
       i.classList.add('btn-light')
       i.classList.remove('btn-danger')
-      i.classList.remove('active')
+      // i.classList.remove('active')
     }
   }
 };
@@ -66,3 +66,43 @@ const activeBtn = (id) => {
 for (const i of switchs) {
   i.addEventListener('click', () => activeBtn(i.dataset.id));
 }
+
+var swiper3_1 = new Swiper(".swiper-3-1", {
+	on:{
+		slideNextTransitionStart: function(){
+      swiper3_2.slideNext();
+    },
+		slidePrevTransitionStart: function(){
+      swiper3_2.slidePrev();
+    },
+  },
+  loop: true,
+  loopAddBlankSlides: true,
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  pagination: {
+    el: ".swiper-3-1 .swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-3-1 .swiper-button-next",
+    prevEl: ".swiper-3-1 .swiper-button-prev",
+  },
+});
+
+var swiper3_2 = new Swiper(".swiper-3-2", {
+  allowTouchMove: false,
+  loop: true,
+  loopAddBlankSlides: true,
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 100,
+    depth: 10,
+    modifier: 1,
+    slideShadows: true,
+  },
+});

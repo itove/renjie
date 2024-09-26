@@ -99,3 +99,9 @@ body{
     color: #c8000a;
   }
 }
+.btn{
+  border-radius: 0;
+}
+.btn-danger{
+  background-color: #c8000a !important;
+}

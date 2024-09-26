@@ -31,7 +31,7 @@
         <div class="d-flex align-items-center">更多车型 >></div>
       </div>
       <div class="switch text-center my-4">
-        <button data-id="1" class="btn btn-danger active">起重运输机</button>
+        <button data-id="1" class="btn btn-danger">起重运输机</button>
         <button data-id="2" class="btn btn-light">汽车起重机</button>
         <button data-id="3" class="btn btn-light">起重运输机</button>
       </div>
@@ -48,7 +48,7 @@
         <div class="swiper-button-next"></div>
       </div>
 
-      <div class="swiper swiper-2 swiper-2-2" data-id="2">
+      <div class="swiper swiper-2 swiper-2-2 d-none" data-id="2">
         <!-- additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- slides -->
@@ -60,7 +60,7 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-      <div class="swiper swiper-2 swiper-2-3" data-id="3">
+      <div class="swiper swiper-2 swiper-2-3 d-none" data-id="3">
         <!-- additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- slides -->
@@ -74,10 +74,118 @@
       </div>
     </div>
   </div>
+
+  <div class="section-3 py-5">
+    <div class="container">
+      <div class="title mb-3">预约看车</div>
+      <form class="text-center text-md-end">
+        <div class="row justify-content-between">
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">姓名:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">性别:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">电话:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-6 col-md-2 input-group-2">
+            <span class="input-group-text">省份:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-6 col-md-2 input-group-2">
+            <span class="input-group-text">城市:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">选择吨位:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">预算:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+        </div>
+        <button class="btn btn-danger mt-3 mb-2">立即预约</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="section-4">
+    <div class="container position-relative">
+      <div class="text text-end">
+        <div class="title2lines">
+          <div class="title">NEWS AND INFORMATION</div>
+          <div>新闻资讯</div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-danger">新闻</button>
+        <button class="btn btn-danger">视频</button>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-4 pe-5">
+          <div class="swiper swiper-3-1">
+            <!-- additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- slides -->
+              <div class="swiper-slide">
+                <div class="title">人杰特汽</div>
+                <div class="line"></div>
+                <div class="summary">人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽</div>
+              </div>
+              <div class="swiper-slide">
+                <div class="title">人杰特汽</div>
+                <div class="summary">人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽</div>
+              </div>
+              <div class="swiper-slide">
+                <div class="title">人杰特汽</div>
+                <div class="summary">人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽</div>
+              </div>
+              <div class="swiper-slide">
+                <div class="title">人杰特汽</div>
+                <div class="summary">人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽</div>
+              </div>
+              <div class="swiper-slide">
+                <div class="title">人杰特汽</div>
+                <div class="summary">人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽人杰特汽</div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="col-12 col-md-8">
+          <div class="swiper swiper-3-2">
+            <!-- additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- slides -->
+              <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-5">
+  </div>
+
 </div>
 {% endblock %}
 
 {% block javascript %}
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/home.js') }}"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.15"></script>
+<script src="{{ asset('js/z_map.js')}}"></script>
+<script src="{{ asset('js/z_setMapCenterByCity.js')}}">
 {% endblock %}
