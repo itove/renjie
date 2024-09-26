@@ -19,70 +19,37 @@
       </div>
       <div class="part-2"></div>
 
-      <div class="row border-top part-3">
-        <div class="col-6 col-md-2 mb-3">
-          <h5>智能选车</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">牵引车</li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">载货车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自卸车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">专用车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自动挡产品</a></li>
-          </ul>
+      <div class="row border-top part-3 justify-content-between">
+        <div class="row col-12 col-md-9 justify-content-between">
+          {% for i in range(0, 4) %}
+          <div class="col-6 col-md-2 mb-3">
+            <h5>智能选车</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">牵引车</li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">载货车</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自卸车</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">专用车</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自动挡产品</a></li>
+            </ul>
+          </div>
+          {% endfor %}
         </div>
-
-        <div class="col-6 col-md-2 mb-3">
-          <h5>智能选车</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">牵引车</li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">载货车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自卸车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">专用车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自动挡产品</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-md-2 mb-3">
-          <h5>智能选车</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">牵引车</li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">载货车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自卸车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">专用车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自动挡产品</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-md-2 mb-3">
-          <h5>智能选车</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">牵引车</li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">载货车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自卸车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">专用车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自动挡产品</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-md-2 mb-3">
-          <h5>智能选车</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">牵引车</li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">载货车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自卸车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">专用车</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">自动挡产品</a></li>
-          </ul>
+        <div class="col-12 col-md-3 mb-3 qr text-center text-md-end">
+          <div>
+            <img src="{{ asset('images/qr.png') }}">
+            <img src="{{ asset('images/qr.png') }}">
+          </div>
+          <div><i style="font-size: 2rem" class="bi bi-telephone-fill"></i> 400-888-8888</div>
         </div>
 
       </div>
 
       <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 copyright">
         <p>法律声明 丨 人杰特汽 版权所有 鄂ICP备888888888号 鄂公网安备 88888888888888号</p>
-        <ul class="list-unstyled d-flex">
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi-alarm"></i></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        <ul class="list-unstyled d-flex m-auto m-md-0">
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><i style="font-size: 1.5rem; color: #c8000a;" class="bi bi-tencent-qq"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><i style="font-size: 1.5rem; color: #c8000a;" class="bi bi-wechat"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><i style="font-size: 1.5rem; color: #c8000a;" class="bi bi-sina-weibo"></i></a></li>
         </ul>
       </div>
   </div>

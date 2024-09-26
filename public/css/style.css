@@ -8,12 +8,22 @@ body{
 }
 .footer{
   background: url("/images/footer_bg.jpg");
+  background-size: cover;
   color: #fff;
   .nav-link{
     color: #fff !important;
   }
   .part-3{
+    padding-top: 2rem;
     border-color: #626262 !important;
+    .qr{
+      text-align: right;
+      font-size: 1.65rem;
+      font-weight: bold;
+      img{
+        width: 5rem;
+      }
+    }
   }
   .part-2{
     border-bottom: #c8000a .3rem solid;
@@ -33,6 +43,7 @@ body{
   }
   .copyright{
     color: #8f8f8f;
+    font-size: .9rem;
   }
 }
 .navbar{
