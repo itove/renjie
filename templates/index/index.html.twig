@@ -1,15 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block style %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 {% endblock %}
 {% block breadcrumbs %}{% endblock %}
 
 {% block main %}
-
-{{ include('footer.html.twig') }}
-
-{% block footer %}{% endblock %}
+<div class="main">
+  <div class="swiper swiper-1">
+    <!-- additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- slides -->
+      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
 {% endblock %}
 
 {% block javascript %}
+<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('js/home.js') }}"></script>
 {% endblock %}
