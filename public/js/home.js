@@ -6,14 +6,63 @@ const swiper1 = new Swiper('.swiper-1', {
   },
 });
 
-const swiper2 = new Swiper('.swiper-2', {
+const swiper2_1 = new Swiper('.swiper-2-1', {
   loop: true,
   pagination: {
-    el: '.swiper-2 .swiper-pagination',
+    el: '.swiper-2-1 .swiper-pagination',
     clickable: true,
   },
   navigation: {
-    nextEl: ".swiper-2 .swiper-button-next",
-    prevEl: ".swiper-2 .swiper-button-prev",
+    nextEl: ".swiper-2-1 .swiper-button-next",
+    prevEl: ".swiper-2-1 .swiper-button-prev",
   },
 });
+const swiper2_2 = new Swiper('.swiper-2-2', {
+  loop: true,
+  pagination: {
+    el: '.swiper-2-2 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-2-2 .swiper-button-next",
+    prevEl: ".swiper-2-2 .swiper-button-prev",
+  },
+});
+const swiper2_3 = new Swiper('.swiper-2-3', {
+  loop: true,
+  pagination: {
+    el: '.swiper-2-3 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-2-3 .swiper-button-next",
+    prevEl: ".swiper-2-3 .swiper-button-prev",
+  },
+});
+const switchs = document.querySelectorAll('.switch button');
+
+const activeBtn = (id) => {
+  const swiper2 = document.querySelectorAll('.swiper-2');
+  for (const i of swiper2) {
+    if (i.dataset.id === id) {
+      i.classList.remove('d-none')
+    } else {
+      i.classList.add('d-none')
+    }
+  }
+  for (const i of switchs) {
+    if (i.dataset.id === id) {
+      i.classList.remove('btn-light')
+      i.classList.add('btn-danger')
+      i.classList.add('active')
+    } else {
+      i.classList.add('btn-light')
+      i.classList.remove('btn-danger')
+      i.classList.remove('active')
+    }
+  }
+};
+
+for (const i of switchs) {
+  i.addEventListener('click', () => activeBtn(i.dataset.id));
+}
