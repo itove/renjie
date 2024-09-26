@@ -1,3 +1,7 @@
+window._AMapSecurityConfig = {
+            securityJsCode:'76636e9692509e65528251d7a3c487c6',
+}
+
 let coord = [110.788265, 32.630331];
 
 let map = new AMap.Map('amap-container', {

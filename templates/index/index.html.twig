@@ -42,6 +42,8 @@
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -55,6 +57,8 @@
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -64,6 +68,8 @@
         <!-- additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- slides -->
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
           <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
@@ -177,6 +183,59 @@
   </div>
 
   <div class="section-5">
+    <div class="container">
+      <div class="text mt-5">
+        <div class="title2lines">
+          <div class="title">PRODUCT DISPLAY</div>
+          <div class="text-dark">经销商查询</div>
+        </div>
+      </div>
+      <div id="map-wrapper">
+        <div id="amap-container">
+        </div>
+        <div id="amap-container-form" class="listCon">
+          <div class="listBox">
+            <div class="searchBox cf">
+              <form class="d-flex justify-content-between" action="" method="post" name="distributor_form" id="distributor_form">
+                <div class="gSelect fl">
+                  <i></i>
+                  <select class="mhxl" id="province" name="province">
+                    <!--
+                    <option></option>
+                    -->
+                  </select>
+                </div>
+                <div class="gSelect noMarR fl">
+                  <i></i>
+                  <select class="mhxl" id="city" name="city">
+                    <!--
+                    <option></option>
+                    -->
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="table_b">
+              <div class="">
+                <div class="vscroller vscroller0">
+                  <div class="vscroller-content" style="top: 0px;">
+                    <ul class="distributor_list" id="distributor_list">
+                      <li data-lat="" data-lng="" data-title="" data-address="" data-tel="">
+                        <h4 class=""></h4>
+                        <div class="">
+                          <p>地址： </p>
+                          <p>电话： </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
@@ -185,7 +244,7 @@
 {% block javascript %}
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/home.js') }}"></script>
-<script src="https://webapi.amap.com/maps?v=1.4.15"></script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=3713e08bba2f85ad35c1ad69943d725f"></script>
 <script src="{{ asset('js/z_map.js')}}"></script>
-<script src="{{ asset('js/z_setMapCenterByCity.js')}}">
+<script src="{{ asset('js/z_setMapCenterByCity.js')}}"></script>
 {% endblock %}
