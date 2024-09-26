@@ -1,33 +1,39 @@
 <header class="header">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
     <div class="container">
-      <a class="navbar-brand" href="#">Container</a>
+      <a href="/"><img class="logo" src="/images/{{ conf.logo }}"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarsExample07">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">关于我们</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <a class="nav-link" href="#">产品专题</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#">产品中心</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">新闻资讯</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">售后服务</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">联系我们</a>
           </li>
         </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <form role="search" class="form-search">
+          <input class="form-control search" type="search" placeholder="" aria-label="Search">
+            <img class="img" src="{{ asset('images/search.png') }}">
+            <button class="text">搜索</button>
         </form>
       </div>
     </div>

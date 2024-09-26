@@ -1,0 +1,51 @@
+.header{
+  .logo{
+    width: 16rem;
+  }
+}
+.navbar{
+  background-color: #1e1e1e !important;
+  padding: 2.5rem 0 1.5rem;
+  .nav-link{
+    color: #fff;
+  }
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+  color: #c8000b;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.form-search{
+  position: relative;
+  top: -1.2rem;
+  width: 180px;
+  .search{
+    border-radius: 2rem;
+    font-size: .5rem;
+    position: absolute;
+    top: .4rem;
+    padding-left: 2rem;
+  }
+  .img{
+    position: absolute;
+    width: 1rem;
+    top: .5rem;
+    left: .3rem;
+  }
+  }
+  .text{
+    background-color: #c8000a;
+    color: #fff;
+    display: inline-block;
+    border-radius: 1rem;
+    padding: .1rem .5rem;
+    font-size: .8rem;
+    position: absolute;
+    z-index: 999;
+    top: .5rem;
+    right: .2rem;
+    border: none;
+  }
+}
