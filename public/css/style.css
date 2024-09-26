@@ -77,7 +77,6 @@ body{
     top: .5rem;
     left: .3rem;
   }
-  }
   .text{
     background-color: #c8000a;
     color: #fff;
@@ -90,5 +89,13 @@ body{
     top: .5rem;
     right: .2rem;
     border: none;
+  }
+}
+.title2lines{
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fff;
+  .title{
+    color: #c8000a;
   }
 }

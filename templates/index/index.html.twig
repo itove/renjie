@@ -8,7 +8,7 @@
 
 {% block main %}
 <div class="main">
-  <div class="swiper swiper-1">
+  <div class="swiper swiper-1 section-1">
     <!-- additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- slides -->
@@ -17,9 +17,37 @@
       <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
       <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
       <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
-      <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
     </div>
     <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="section-2" style="background-image: url({{asset('images/bg-1.jpg')}})">
+    <div class="container">
+      <div class="text d-flex justify-content-between">
+        <div class="title2lines">
+          <div class="title">PRODUCT DISPLAY</div>
+          <div>产品展示</div>
+        </div>
+        <div class="d-flex align-items-center">更多车型 >></div>
+      </div>
+      <div class="switch text-center my-4">
+        <button class="btn btn-danger active">起重运输机</button>
+        <button class="btn btn-light">汽车起重机</button>
+        <button class="btn btn-light">起重运输机</button>
+      </div>
+      <div class="swiper swiper-2">
+        <!-- additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- slides -->
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+          <div class="swiper-slide" style="background-image: url({{asset('images/slider-1.png')}})"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
