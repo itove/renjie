@@ -1,3 +1,6 @@
+{% set route = app.request.get('_route') %}
+{% dump(route) %}
+
 <header class="header">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
     <div class="container">
@@ -9,25 +12,25 @@
       <div class="collapse navbar-collapse" id="navbarsExample07">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">首页</a>
+            <a class="nav-link {{ route == 'app_index' ? 'active' }}" aria-current="page" href="/">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_about') }}">关于我们</a>
+            <a class="nav-link {{ route == 'app_about' ? 'active' }}" href="{{ path('app_about') }}">关于我们</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_product_topic') }}">产品专题</a>
+            <a class="nav-link {{ route == 'app_product_topic' ? 'active' }}" href="{{ path('app_product_topic') }}">产品专题</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_product_center') }}">产品中心</a>
+            <a class="nav-link {{ route == 'app_product_center' ? 'active' }}" href="{{ path('app_product_center') }}">产品中心</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_news_list') }}">新闻资讯</a>
+            <a class="nav-link {{ route == 'app_news_list' ? 'active' }}" href="{{ path('app_news_list') }}">新闻资讯</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_services') }}">售后服务</a>
+            <a class="nav-link {{ route == 'app_services' ? 'active' }}" href="{{ path('app_services') }}">售后服务</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_contact') }}">联系我们</a>
+            <a class="nav-link {{ route == 'app_contact' ? 'active' }}" href="{{ path('app_contact') }}">联系我们</a>
           </li>
         </ul>
         <form role="search" class="form-search">
