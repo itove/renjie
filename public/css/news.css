@@ -1,0 +1,28 @@
+.hero .text{
+  position: absolute;
+  bottom: 3rem;
+}
+.news-wrapper{
+  .news-item{
+    padding: 2.5rem 0;
+    margin: 3rem 0;
+    border: var(--grey-light) 1px solid;
+    img{
+      width: 100%;
+    }
+    .content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 3rem;
+    }
+    .title{
+      font-size: 2rem;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+    .btn{
+      width: 110px;
+    }
+  }
+}

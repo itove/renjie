@@ -1,3 +1,8 @@
+:root{
+  --red: #c8000a;
+  --grey: #626262;
+  --grey-light: #cdcdcd;
+}
 body{
   background-color: #fff !important;
 }
@@ -104,4 +109,10 @@ body{
 }
 .btn-danger{
   background-color: #c8000a !important;
+}
+.hero{
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }

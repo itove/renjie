@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block style %}
+<link rel="stylesheet" href="/css/newsdetail.css?version=1.8">
+{% endblock %}
+
+{% block main %}
+	<!--详情内容-->
+	<div class="container detailbox">
+    <h3>{{ node.title }}</h3>
+      {{ node.body|raw }}
+	</div>
+	
+	<!--上一頁下一頁-->
+	<div class="upanddown">
+		<div class="container updownbox">
+      {% if prev %}
+			<a class="up" href="{{ path('app_node_show', {nid: prev.id}) }}">上一篇</a>
+      {% endif %}
+      {% if next %}
+			<a class="down" href="{{ path('app_node_show', {nid: next.id}) }}">下一篇</a>
+      {% endif %}
+		</div>
+	</div>
+
+{% endblock %}
+
+    {% block javascript %}
+<script src="/js/newsdetail.js?version=1.8"></script>
+    {% endblock %}
