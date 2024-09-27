@@ -39,6 +39,26 @@
     </div>
   </div>
   {% endfor %}
+
+{% set page = 5 %}
+{% set page_count = 5 %}
+
+  <div class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item {{ page == 1 ? 'disabled'}}">
+        <a class="page-link" href="?p={{ page - 1 }}"><span>&laquo;</span></a>
+      </li> 
+      {% for i in 1..page_count %}
+      <li class="page-item {{ loop.index == page ? 'active'}}">
+        <a class="page-link" href="?p={{ loop.index }}"><span>{{ loop.index }}</span></a>
+      </li>
+      {% endfor %}
+      <li class="page-item {{ page == page_count ? 'disabled'}}">
+        <a class="page-link" href="?p={{ page + 1}}">&raquo;</a>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 {% endblock %}

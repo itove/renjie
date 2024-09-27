@@ -1,5 +1,7 @@
 {% set route = app.request.get('_route') %}
-{% dump(route) %}
+{#
+{% set route = app.request.attributes.get('_route') %}
+#}
 
 <header class="header">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">

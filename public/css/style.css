@@ -2,6 +2,7 @@
   --red: #c8000a;
   --grey: #626262;
   --grey-light: #cdcdcd;
+  --dark: #1e1e1e;
 }
 body{
   background-color: #fff !important;
@@ -15,6 +16,7 @@ body{
   background: url("/images/footer_bg.jpg");
   background-size: cover;
   color: #fff;
+  margin-top: 3rem;
   .nav-link{
     color: #fff !important;
   }
