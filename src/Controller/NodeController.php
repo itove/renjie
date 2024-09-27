@@ -118,30 +118,40 @@ class NodeController extends AbstractController
     #[Route('/about', name: 'app_about')]
     public function aboutUs(Request $request): Response
     {
-        return $this->render('node/about.html.twig');
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('about.html.twig', $data);
     }
 
     #[Route('/topic', name: 'app_product_topic')]
     public function topic(Request $request): Response
     {
-        return $this->render('node/topic.html.twig');
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('topic.html.twig', $data);
     }
 
     #[Route('/products', name: 'app_product_center')]
     public function listProducts(Request $request): Response
     {
-        return $this->render('node/products.html.twig');
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('products.html.twig', $data);
     }
 
     #[Route('/services', name: 'app_services')]
     public function services(Request $request): Response
     {
-        return $this->render('node/services.html.twig');
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('services.html.twig', $data);
     }
 
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request): Response
     {
-        return $this->render('node/contact.html.twig');
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('contact.html.twig', $data);
     }
 }

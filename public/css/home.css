@@ -47,10 +47,10 @@
 .swiper-1{
   height: 600px;
   .swiper-pagination{
-    width: 12rem;
     left: unset !important;
     right: 20rem;
     bottom: 2rem !important;
+    text-align: right;
   }
   .swiper-pagination-bullet-active{
     background: #ac222f;

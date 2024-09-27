@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/about.css') }}">
+{% endblock %}
+
+{% block main %}
+<div class="hero" style="background-image: url({{ asset('images/about_hero.jpg') }})">
+  <div class="container">
+    <div class="text">
+      <div class="title2lines">
+        <div class="title"></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="section-1 container">
+    <div class="head d-flex justify-content-between">
+      <div class="text">
+        <div class="title2lines">
+          <div class="title">COMPANY INTRODUCTION</div>
+          <div>公司介绍</div>
+        </div>
+      </div>
+      <div class="big d-none d-md-block">INTRODUCTION </div>
+    </div>
+    <div class="row">
+      <img class="col-12 col-md-7" src="{{ asset('images/about-1.jpg') }}">
+      <div class="col-12 col-md-5 content">
+  无锡红光标牌有限公司是一家集研发、生产、销售和服务于一体的专业标牌生产厂家。注册资金500万人民币。主要生产塑料基材、软塑透明 #1
+      </div>
+    </div>
+  </div>
+
+  <div class="section-2">
+    <div class="container">
+      <div class="head d-flex justify-content-between">
+        <div class="big d-none d-md-block">HONOR</div>
+        <div class="text">
+          <div class="title2lines text-start text-md-end">
+            <div class="title">CORPORATE HONOR</DIV>
+            <div>公司荣誉</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row list">
+        {% for i in range(0,3) %}
+        <div class="col-12 col-md-6">
+          <img class="" src="{{ asset('images/about-1.jpg') }}">
+          <div class="title"><span class="dot">●</span> 不断吸收新技术</div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="text">企企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍</div>
+    </div>
+  </div>
+
+  <div class="section-3">
+    <div class="container">
+      <div class="head d-flex justify-content-between">
+        <div class="text">
+          <div class="title2lines">
+            <div class="title">EMPLOYEE DEMEANOR</DIV>
+            <div>员工风采</div>
+          </div>
+        </div>
+        <div class="big d-none d-md-block">DEMEANOR</div>
+      </div>
+
+      <div class="row list">
+        {% for i in range(0,5) %}
+        <div class="col-12 col-md-4">
+          <img class="" src="{{ asset('images/about-1.jpg') }}">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="section-4">
+    <div class="container">
+      <div class="head d-flex justify-content-between">
+        <div class="big d-none d-md-block">CONCERN</div>
+        <div class="text">
+          <div class="title2lines text-start text-md-end">
+            <div class="title">LEADERSHIP CONCERN</DIV>
+            <div>领导关怀</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row list">
+        <div class="col-12 col-md-8 swiper">
+
+          <div class="swiper-wrapper">
+            <!-- slides -->
+            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+              <div class="img"></div>
+              <div class="title">不断吸收新技术</div>
+            </div>
+            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+              <div class="img"></div>
+              <div class="title">不断吸收新技术</div>
+            </div>
+            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+              <div class="img"></div>
+              <div class="title">不断吸收新技术</div>
+            </div>
+            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+              <div class="img"></div>
+              <div class="title">不断吸收新技术</div>
+            </div>
+            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+              <div class="img"></div>
+              <div class="title">不断吸收新技术</div>
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+
+        </div>
+        {% for i in range(0,3) %}
+        <div class="col-12 col-md-4">
+          <img class="img" src="{{ asset('images/about-1.jpg') }}">
+          <div class="title">不断吸收新技术</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('js/about.js') }}"></script>
+{% endblock %}
