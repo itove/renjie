@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+
+{% block main %}
+<div class="hero" style="background-image: url({{ asset('images/contact_hero.jpg') }})">
+  <div class="container">
+    <div class="text">
+      <div class="title2lines">
+        <div class="title">CONTACT US</div>
+        <div>联系我们</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 text-center">
+        <div></div>
+        <div>联系单位</div>
+        <div>湖北十堰人杰汽车有限公司</div>
+      </div>
+      <div class="col-12 col-md-4 text-center">
+        <div></div>
+        <div>联系单位</div>
+        <div>湖北十堰人杰汽车有限公司</div>
+      </div>
+      <div class="col-12 col-md-4 text-center">
+        <div></div>
+        <div>联系单位</div>
+        <div>湖北十堰人杰汽车有限公司</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div id="map-wrapper" class="col-12 col-md-7">
+        <div id="amap-container">
+        </div>
+      </div>
+      <div class="co-12 col-md-5">
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://webapi.amap.com/maps?v=2.0&key=3713e08bba2f85ad35c1ad69943d725f"></script>
+<script src="{{ asset('js/z_map.js')}}"></script>
+{% endblock %}
