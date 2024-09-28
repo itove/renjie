@@ -81,17 +81,6 @@
     border-left: none;
   }
 }
-@media (min-width: 768px) {
-  .section-3{
-    .input-group{
-      margin: .5rem;
-      width: 32%;
-    }
-    .input-group-2{
-      width: 15%;
-    }
-  }
-}
 .section-4{
   padding: 4rem 0;
   background-color: #1e1e1e;
@@ -179,7 +168,7 @@
     top: 0;
     opacity: 0.8;
     text-align: center;
-		width: 25%;
+		width: 100%;
 		height: 100%;
     padding: 1rem;
     form{
@@ -195,4 +184,19 @@
   #amap-container-form ul#distributor_list li h4 {
 		font-size: 1em;
 	}
+}
+
+@media (min-width: 768px) {
+  .section-5 #amap-container-form{
+    width: 25%;
+  }
+  .section-3{
+    .input-group{
+      margin: .5rem;
+      width: 32%;
+    }
+    .input-group-2{
+      width: 15%;
+    }
+  }
 }
