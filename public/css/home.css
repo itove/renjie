@@ -48,9 +48,9 @@
   height: 600px;
   .swiper-pagination{
     left: unset !important;
-    right: 20rem;
     bottom: 2rem !important;
-    text-align: right;
+    right: 0;
+    text-align: center;
   }
   .swiper-pagination-bullet-active{
     background: #ac222f;
@@ -198,5 +198,8 @@
     .input-group-2{
       width: 15%;
     }
+  }
+  .swiper-1 .swiper-pagination{
+    right: -20rem;
   }
 }
