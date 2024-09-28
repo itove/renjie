@@ -19,17 +19,17 @@
 <div class="news-wrapper container">
   {% for i in range(0, 4) %}
   <div class="news-item row">
-    <div class="img col-12 col-md-4 ps-0">
+    <div class="img col-12 col-md-4 ps-md-0">
       <img src="{{ asset('images/news-1.jpg') }}">
     </div>
-    <div class="content col-12 col-md-8">
+    <div class="content col-12 col-md-8 px-3 px-md-5">
       <div class="top">
         <div class="title">战略合作新闻！</div>
         <div class="summary">
         起重设备司机必须经过专业安全培训，并经有关部门考核批准后，发结合格证件，方准单独操作。严禁无证人员动用起重设备。工作前必须检查
         </div>
       </div>
-      <div class="more d-flex justify-content-between">
+      <div class="more d-flex justify-content-between align-items-center">
         <a href="{{ path('app_node_show', {'nid': 1}) }}"> <button class="btn btn-danger"> 查看详情 </button> </a>
         <div>
           <div class="date">12</div>
@@ -40,7 +40,7 @@
   </div>
   {% endfor %}
 
-{% set page = 5 %}
+{% set page = 1 %}
 {% set page_count = 5 %}
 
   <div class="d-flex justify-content-center">
