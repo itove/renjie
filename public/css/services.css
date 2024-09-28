@@ -1,7 +1,7 @@
 .main{
   padding-top: 4.5rem;
   .text{
-    padding-top: 1rem;
+    padding-top: 3rem;
     padding-bottom: 1rem;
     .title{
       color: var(--red);
@@ -11,6 +11,10 @@
       padding-bottom: .7rem;
       margin-bottom: .7rem;
       border-bottom: var(--red) 1px solid;
+    }
+    .title2{
+      font-weight: 600;
+      margin-bottom: .7rem;
     }
   }
 }
