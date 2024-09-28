@@ -1,5 +1,9 @@
 .main{
   padding: 4rem 0;
+  .contact>div{
+    padding: 7rem 0 4rem;
+    border: #e2e2e2 1px solid;
+  }
 }
 #map-wrapper{
   height: 600px;
@@ -8,4 +12,29 @@
 #amap-container{
   width: 100%;
   height: 100%;
+}
+.form-wrapper{
+  padding: 2rem 3.5rem;
+  height: 100%;
+  color: #fff;
+  .title{
+    color: var(--red);
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  .desc{
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  form{
+    padding: 2rem 0;
+    .form-control{
+      margin: 1rem 0;
+      padding: .8rem;
+    }
+    .note{
+      font-size: .8rem;
+      color: #b6b6b6;
+    }
+  }
 }
