@@ -25,7 +25,6 @@ class IndexController extends AbstractController
     {
         $data = $this->data->getPageContent('home', $request->getLocale());
         
-        dump($data);
         return $this->render('index/index.html.twig', $data);
     }
 }
