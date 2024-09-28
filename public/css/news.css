@@ -31,18 +31,4 @@
       color: var(--red);
     }
   }
-  .pagination{
-    .page-item:first-child .page-link,
-    .page-item:last-child .page-link {
-      border-radius: 0;
-    }
-    .page-link{
-      background-color: var(--dark);
-      color: #fff;
-    }
-    .active>.page-link, .page-link.active{
-      background-color: var(--red);
-      border-color: var(--red);
-    }
-  }
 }
