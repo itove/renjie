@@ -38,3 +38,68 @@
     padding-left: 12px !important;
   }
 }
+
+.product{
+  .images-1{
+    img{
+      height: 400px;
+    };
+  }
+  .images-2{
+    img{
+      height: 268px;
+    };
+  }
+  .images{
+    >div{
+    }
+    .title{
+      padding: .6rem 1rem;
+      border: #aaaaaa 1px solid;
+      border-top: none;
+      margin-bottom: 1.6rem;
+    }
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .summary{
+    padding: 2rem 0;
+  }
+  th, .more{
+    color: #737373;
+    font-weight: initial;
+  }
+  .body{
+    figure{
+      text-align: center;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+form{
+  .input-group{
+    margin: .6rem 0;
+  }
+  .input-group-text{
+    background-color: #fff;
+    color: #4b4b4b;
+    border-radius: 0;;
+  }
+  .form-control{
+    border-left: none;
+    border-radius: 0;;
+  }
+}
+.reserve{
+  .text{
+    .desc{
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+}

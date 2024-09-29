@@ -16,8 +16,91 @@
   </div>
 </div>
 
-<div class="main container py-5">
-      {{ node.body|raw }}
+<div class="main container py-5 product">
+  <div class="images images-1 row">
+    {% for i in node.images|slice(0,4) %}
+    <div class="col-12 col-md-6">
+      <img src="{{ asset("images/#{i.image}") }}">
+      <div class="title">{{i.title}}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="images images-2 row">
+    {% for i in node.images|slice(4, ) %}
+    <div class="col-12 col-md-4 mb-1">
+      <img src="{{ asset("images/#{i.image}") }}">
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="summary">
+  {{ node.summary }}
+  </div>
+
+  <div class="table-responsive ">
+  <table class="table table-hover table-bordered">
+    <tbody>
+      {% for i in node.specs %}
+        <tr>
+          <th>{{i.name}}</th>
+          <td>{{i.value}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <div class="text-end more">*更多详细参数请店内查询</div>
+
+  <div class="body py-5 p-md-5">
+  {{ node.body|raw }}
+  </div>
+
+  <div class="row reserve">
+    <div class="col-12 col-md-7 p-4 bg-cover" style="background-image: url({{ asset('images/reserve_bg.jpg') }})">
+      <div class="text">
+        <div class="title2lines">
+          <div class="title">预约看车</div>
+          <div class="desc">MAKE AN APPOINTMENT TO SEE THE CAR</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-5">
+        <form class="text-center text-md-end">
+        <div class="row justify-content-between">
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">姓名:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">性别:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">电话:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 input-group-2">
+            <span class="input-group-text">省份:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <div class="mx-2"></div>
+            <span class="input-group-text">城市:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">选择吨位:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+          <div class="input-group col-12 col-md-4">
+            <span class="input-group-text">预算:</span>
+            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+          </div>
+        </div>
+          <button class="btn btn-danger">立即预约</button>
+        </form>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}

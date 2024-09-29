@@ -140,3 +140,7 @@ a{
   color: unset;
   text-decoration: unset;
 }
+.bg-cover{
+  background-position: center;
+  background-size: cover
+}

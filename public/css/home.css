@@ -72,13 +72,15 @@
   }
   .input-group{
     margin: 1rem;
-      width: 93%;
+    width: 93%;
   }
   .input-group-text{
     background-color: #fff;
+    border-radius: 0;;
   }
   .form-control{
     border-left: none;
+    border-radius: 0;;
   }
 }
 .section-4{
@@ -194,9 +196,6 @@
     .input-group{
       margin: .5rem;
       width: 32%;
-    }
-    .input-group-2{
-      width: 15%;
     }
   }
   .swiper-1 .swiper-pagination{

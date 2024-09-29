@@ -50,7 +50,7 @@ class Spec
         return $this->value;
     }
 
-    public function setValue(string $value): static
+    public function setValue(?string $value): static
     {
         $this->value = $value;
 
