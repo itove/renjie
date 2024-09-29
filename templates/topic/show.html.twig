@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/topic.css') }}">
+{% endblock %}
+
+{% block main %}
+<div class="hero" style="background-image: url({{ asset('images/topic_hero.jpg') }})">
+  <div class="container">
+    <div class="text">
+      <div class="title2lines">
+        <div class="title">PRODUCT TOPICS</div>
+        <div>产品专题</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 item" style="background-image: url({{ asset('images/topic-1.jpg') }})">
+        <div class="title">新品上市</div>
+        <button class="btn btn-danger">查看详情</button>
+      </div>
+
+      <div class="col-12 col-md-6 item p-0 pe-md-2">
+        <div class="box" style="background-image: url({{ asset('images/topic-2.jpg') }})">
+          <div class="title">新品上市</div>
+          <button class="btn btn-danger">查看详情</button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 item p-0 ps-md-2">
+        <div class="box" style="background-image: url({{ asset('images/topic-3.jpg') }})">
+          <div class="title">新品上市</div>
+          <button class="btn btn-danger">查看详情</button>
+        </div>
+      </div>
+
+      <div class="col-12 item" style="background-image: url({{ asset('images/topic-4.jpg') }})">
+        <div class="title">新品上市</div>
+        <button class="btn btn-danger">查看详情</button>
+      </div>
+      <div class="col-12 item" style="background-image: url({{ asset('images/topic-5.jpg') }})">
+        <div class="title">新品上市</div>
+        <button class="btn btn-danger">查看详情</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

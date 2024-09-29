@@ -123,20 +123,36 @@ class NodeController extends AbstractController
         return $this->render('about.html.twig', $data);
     }
 
-    #[Route('/topic', name: 'app_product_topic')]
+    #[Route('/topic', name: 'app_topic')]
     public function topic(Request $request): Response
     {
         $data = $this->data->getMisc($request->getLocale());
 
-        return $this->render('topic.html.twig', $data);
+        return $this->render('topic/index.html.twig', $data);
     }
 
-    #[Route('/products', name: 'app_product_center')]
+    #[Route('topic/{nid}', requirements: ['nid' => '\d+'], name: 'app_topic_show')]
+    public function showTopic(int $nid, Request $request): Response
+    {
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('topic/show.html.twig', $data);
+    }
+
+    #[Route('/products', name: 'app_products')]
     public function listProducts(Request $request): Response
     {
         $data = $this->data->getMisc($request->getLocale());
 
-        return $this->render('products.html.twig', $data);
+        return $this->render('products/index.html.twig', $data);
+    }
+
+    #[Route('/products/{nid}', requirements: ['nid' => '\d+'], name: 'app_product_show')]
+    public function showProduct(int $nid, Request $request): Response
+    {
+        $data = $this->data->getMisc($request->getLocale());
+
+        return $this->render('products/show.html.twig', $data);
     }
 
     #[Route('/services', name: 'app_services')]
