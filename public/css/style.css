@@ -14,10 +14,6 @@ body{
   }
 }
 .footer{
-  a{
-    color: unset;
-    text-decoration: unset;
-  }
   background: url("/images/footer_bg.jpg");
   background-size: cover;
   color: #fff;
@@ -139,4 +135,8 @@ body{
     background-color: var(--red);
     border-color: var(--red);
   }
+}
+a{
+  color: unset;
+  text-decoration: unset;
 }

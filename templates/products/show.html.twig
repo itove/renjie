@@ -5,78 +5,20 @@
 {% endblock %}
 
 {% block main %}
-<div class="hero" style="background-image: url({{ asset('images/products_hero.jpg') }})">
+<div class="hero" style="background-image: url({{ asset('images/product_hero.jpg') }})">
   <div class="container">
     <div class="text">
       <div class="title2lines">
-        <div class="title">PRODUCT CENTER</div>
-        <div>产品中心</div>
+        <div class="title"></div>
+        <div></div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="main container py-5">
-  <div class="btn-wrapper">
-    <div class="btns btns1">
-      <button class="btn btn-dark">产品类型:</button>
-      <button class="btn btn-danger">随车起重运输车</button>
-      <button class="btn btn-outline-danger">汽车起重机</button>
-      <button class="btn btn-outline-danger">其它</button>
-    </div>
-    <div class="btns btns2">
-      <button class="btn btn-dark">驱动形式:</button>
-      <button class="btn btn-danger">4x2</button>
-      <button class="btn btn-outline-danger">4x2</button>
-      <button class="btn btn-outline-danger">8x4</button>
-      <button class="btn btn-outline-danger">4x2</button>
-      <button class="btn btn-outline-danger">10x4</button>
-      <button class="btn btn-outline-danger">其它</button>
-    </div>
-    <div class="btns btns3">
-      <button class="btn btn-dark">吨位:</button>
-      <button class="btn btn-danger">3.2吨</button>
-      <button class="btn btn-outline-danger">5吨</button>
-      <button class="btn btn-outline-danger">6吨</button>
-      <button class="btn btn-outline-danger">8吨</button>
-      <button class="btn btn-outline-danger">10吨</button>
-      <button class="btn btn-outline-danger">12吨</button>
-      <button class="btn btn-outline-danger">14吨</button>
-      <button class="btn btn-outline-danger">16吨</button>
-      <button class="btn btn-outline-danger">55吨</button>
-    </div>
-  </div>
-
-  <div class="products-wrapper row mt-5">
-    {% for i in range(0,14)%}
-    <div class="col-12 col-md-4 px-md-5">
-      <div class="img">
-        <img src="{{ asset('images/product.png')}}">
-      </div>
-      <div class="title text-center">产品1</div>
-    </div>
-    {% endfor %}
-  </div>
+      {{ node.body|raw }}
 </div>
-
-{% set page = 5 %}
-{% set page_count = 5 %}
-
-  <div class="d-flex justify-content-center mb-5">
-    <ul class="pagination">
-      <li class="page-item {{ page == 1 ? 'disabled'}}">
-        <a class="page-link" href="?p={{ page - 1 }}"><span>&laquo;</span></a>
-      </li> 
-      {% for i in 1..page_count %}
-      <li class="page-item {{ loop.index == page ? 'active'}}">
-        <a class="page-link" href="?p={{ loop.index }}"><span>{{ loop.index }}</span></a>
-      </li>
-      {% endfor %}
-      <li class="page-item {{ page == page_count ? 'disabled'}}">
-        <a class="page-link" href="?p={{ page + 1}}">&raquo;</a>
-      </li>
-    </ul>
-  </div>
 
 {% endblock %}
 

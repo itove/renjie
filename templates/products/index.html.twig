@@ -50,10 +50,12 @@
   <div class="products-wrapper row mt-5">
     {% for i in range(0,14)%}
     <div class="col-12 col-md-4 px-md-5">
+      <a href="{{path('app_product_show', {nid: 1})}}">
       <div class="img">
         <img src="{{ asset('images/product.png')}}">
       </div>
       <div class="title text-center">产品1</div>
+      </a>
     </div>
     {% endfor %}
   </div>
