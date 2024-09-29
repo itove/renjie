@@ -92,7 +92,7 @@
     margin-right: .6rem;
   }
   .swiper-3-1{
-    height: 400px;
+    height: 260px;
     .swiper-slide{
       color: #fff;
       .title{
@@ -110,7 +110,7 @@
     }
   }
   .swiper-3-2{
-    height: 400px;
+    height: 180px;
     .swiper-slide{
       width: 70%;
     }
@@ -200,5 +200,13 @@
   }
   .swiper-1 .swiper-pagination{
     right: -20rem;
+  }
+  .section-4{
+    .swiper-3-1{
+      height: 400px;
+    }
+    .swiper-3-2{
+      height: 400px;
+    }
   }
 }
