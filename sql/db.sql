@@ -605,7 +605,7 @@ CREATE TABLE public.spec (
     id integer NOT NULL,
     node_id integer NOT NULL,
     name character varying(25) NOT NULL,
-    value character varying(255) NOT NULL
+    value character varying(255)
 );
 
 
@@ -729,6 +729,7 @@ COPY public.conf (id, language_id, sitename, keywords, description, address, pho
 COPY public.doctrine_migration_versions (version, executed_at, execution_time) FROM stdin;
 DoctrineMigrations\\Version20240925045608	2024-09-25 04:56:18	394
 DoctrineMigrations\\Version20240925123107	2024-09-25 12:31:11	20
+DoctrineMigrations\\Version20240929010350	2024-09-29 01:04:19	12
 \.
 
 
@@ -745,7 +746,13 @@ COPY public.feedback (id, node_id, firstname, lastname, email, phone, title, bod
 --
 
 COPY public.image (id, node_id, image, title) FROM stdin;
-5	1	it-consulting-66f40406e3943016659280.jpg	\N
+6	1	p-2-66f8a5cf4b0a2628898561.jpg	60度角图
+7	1	p-3-66f8a5cf4e2a3958168705.jpg	正侧面
+8	1	p-4-66f8a5cf4e86f001125249.jpg	长吊机图
+5	1	p-1-66f8a5cf51491428362740.jpg	正面图
+9	1	p-5-66f8a5ee61c78446770414.jpg	\N
+10	1	p-6-66f8a5ee624d2639907380.jpg	\N
+11	1	p-7-66f8a5ee62a3c915367614.jpg	\N
 \.
 
 
@@ -786,7 +793,7 @@ COPY public.messenger_messages (id, body, headers, queue_name, created_at, avail
 --
 
 COPY public.node (id, language_id, category_id, parent_id, title, created_at, body, image, summary, updated_at, video, audio, qr, phone, latitude, longitude, address, price) FROM stdin;
-1	\N	\N	\N	n1	2024-09-25 12:32:50	\N	\N	\N	2024-09-25 12:32:50	\N	\N	\N	\N	\N	\N	\N	\N
+1	\N	\N	\N	n1	2024-09-25 12:32:50	<figure class="image"><img style="aspect-ratio:600/388;" src="/images/66f8a8e8c47c9-p-5.jpg" width="600" height="388"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p><figure class="image"><img style="aspect-ratio:600/386;" src="/images/66f8a8f668b27-p-6.jpg" width="600" height="386"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p><figure class="image"><img style="aspect-ratio:600/408;" src="/images/66f8a8ff56186-p-7.jpg" width="600" height="408"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p>	\N	东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。	2024-09-25 12:32:50	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -848,6 +855,18 @@ COPY public.region (id, page_id, name, label, count, icon, fields, description) 
 --
 
 COPY public.spec (id, node_id, name, value) FROM stdin;
+14	1	车辆类别	随车起重运输车
+15	1	整车型号	XCL5180JSQ
+16	1	XCL5180JSQ	EQ1180GFVJ
+17	1	颜色（底盘+吊机）	杰狮红/黄杰狮红/红珠光钼红/黄珠光钼红/红工程黄/黄
+18	1	发动机型号	YC6A240-50/YC6A270-50/WP7.245E51/WP7.270E51/ISD245 50
+19	1	轴距	2100+3800+1350/2140+4060+1350/2100+4500+1350/2140+3800+1350/2140+4500+1350
+20	1	选装吊机	徐工14、12、16吨/古河14、12、16吨
+21	1	排放	排放
+22	1	外廓尺寸(mm)	\N
+13	1	参考价格	40,000,00
+24	1	最大扭矩/转速（N·m/（r/min））	\N
+23	1	额定功率/转速（kW/（r/min））	\N
 \.
 
 
@@ -901,7 +920,7 @@ SELECT pg_catalog.setval('public.feedback_id_seq', 1, false);
 -- Name: image_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.image_id_seq', 5, true);
+SELECT pg_catalog.setval('public.image_id_seq', 11, true);
 
 
 --
@@ -971,7 +990,7 @@ SELECT pg_catalog.setval('public.region_id_seq', 2, true);
 -- Name: spec_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.spec_id_seq', 1, false);
+SELECT pg_catalog.setval('public.spec_id_seq', 24, true);
 
 
 --
