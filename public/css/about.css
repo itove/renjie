@@ -58,7 +58,8 @@ body{
   .section-3{
     img{
       width: 100%;
-      margin-bottom: 1rem;
+      height: 100%;
+      object-fit: cover;
     }
     .big{
       bottom: -4rem;
@@ -66,6 +67,9 @@ body{
     .list{
       position: relative;
       z-index: 9;
+      >div{
+        margin-bottom: 1rem;
+      }
     }
   }
   .section-4{

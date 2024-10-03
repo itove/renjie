@@ -1,7 +1,13 @@
+.contact{
+  img{
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+}
 .main{
   padding: 4rem 0;
   .contact>div{
-    padding: 7rem 0 4rem;
+    padding: 5rem 0 4rem;
     border: #e2e2e2 1px solid;
   }
 }

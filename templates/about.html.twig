@@ -95,35 +95,35 @@
       </div>
 
       <div class="row list">
-        <div class="col-12 col-md-8 swiper">
-
-          <div class="swiper-wrapper">
-            <!-- slides -->
-            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-              <div class="img"></div>
-              <div class="title">不断吸收新技术</div>
+        <div class="col-12 col-md-8">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- slides -->
+              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+                <div class="img"></div>
+                <div class="title">不断吸收新技术</div>
+              </div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+                <div class="img"></div>
+                <div class="title">不断吸收新技术</div>
+              </div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+                <div class="img"></div>
+                <div class="title">不断吸收新技术</div>
+              </div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+                <div class="img"></div>
+                <div class="title">不断吸收新技术</div>
+              </div>
+              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+                <div class="img"></div>
+                <div class="title">不断吸收新技术</div>
+              </div>
             </div>
-            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-              <div class="img"></div>
-              <div class="title">不断吸收新技术</div>
-            </div>
-            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-              <div class="img"></div>
-              <div class="title">不断吸收新技术</div>
-            </div>
-            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-              <div class="img"></div>
-              <div class="title">不断吸收新技术</div>
-            </div>
-            <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-              <div class="img"></div>
-              <div class="title">不断吸收新技术</div>
-            </div>
-
+            <div class="swiper-pagination"></div>
           </div>
-          <div class="swiper-pagination"></div>
-
         </div>
+
         {% for i in range(2,5) %}
         <div class="col-12 col-md-4">
           <img class="img" src="{{ asset("images/concern-#{i}.jpg") }}">
