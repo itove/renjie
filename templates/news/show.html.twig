@@ -1,41 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('css/news.css') }}">
+<link rel="stylesheet" href="{{ asset('css/topic.css') }}">
 {% endblock %}
 
 {% block main %}
-<div class="hero" style="background-image: url({{ asset('images/contact_hero.jpg') }})">
+<div class="hero" style="background-image: url({{ asset('images/topic_hero.jpg') }})">
   <div class="container">
     <div class="text">
       <div class="title2lines">
-        <div class="title">NEWS INFORMATION</div>
-        <div>新闻资讯</div>
+        <div class="title">PRODUCT TOPICS</div>
+        <div>产品专题</div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="news-wrapper container">
-  {% for i in range(0, 4) %}
-  <div class="news-item row">
-    <div class="img col-4 ps-0">
-      <img src="{{ asset('images/news-1.jpg') }}">
-    </div>
-    <div class="content col-8">
-      <div class="top">
-        <div class="title">战略合作新闻！</div>
-        <div class="summary">
-        起重设备司机必须经过专业安全培训，并经有关部门考核批准后，发结合格证件，方准单独操作。严禁无证人员动用起重设备。工作前必须检查
+<div class="main py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 item" style="background-image: url({{ asset('images/topic-1.jpg') }})">
+        <div class="title">新品上市</div>
+        <button class="btn btn-danger">查看详情</button>
+      </div>
+
+      <div class="col-12 col-md-6 item p-0 pe-md-2">
+        <div class="box" style="background-image: url({{ asset('images/topic-2.jpg') }})">
+          <div class="title">新品上市</div>
+          <button class="btn btn-danger">查看详情</button>
         </div>
       </div>
-      <div class="more d-flex justify-content-between">
-        <a href="{{ path('app_node_show', {'nid': 1}) }}"> <button class="btn btn-danger"> 查看详情 </button> </a>
-        <div>2020-4-12</div>
+      <div class="col-12 col-md-6 item p-0 ps-md-2">
+        <div class="box" style="background-image: url({{ asset('images/topic-3.jpg') }})">
+          <div class="title">新品上市</div>
+          <button class="btn btn-danger">查看详情</button>
+        </div>
+      </div>
+
+      <div class="col-12 item" style="background-image: url({{ asset('images/topic-4.jpg') }})">
+        <div class="title">新品上市</div>
+        <button class="btn btn-danger">查看详情</button>
+      </div>
+      <div class="col-12 item" style="background-image: url({{ asset('images/topic-5.jpg') }})">
+        <div class="title">新品上市</div>
+        <button class="btn btn-danger">查看详情</button>
       </div>
     </div>
   </div>
-  {% endfor %}
 </div>
 
 {% endblock %}

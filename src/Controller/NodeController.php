@@ -39,7 +39,7 @@ class NodeController extends AbstractController
           'next' => $next,
         ];
 
-        return $this->render('node/detail.html.twig', array_merge($data, $data1));
+        return $this->render('node/show.html.twig', array_merge($data, $data1));
     }
 
     #[Route('/news', name: 'app_news_list')]
@@ -79,8 +79,9 @@ class NodeController extends AbstractController
     public function showNews(int $nid, Request $request): Response
     {
         $data = $this->data->getMisc($request->getLocale());
+        $data['node'] = $this->data->getNode($nid);
 
-        return $this->render('news/show.html.twig', $data);
+        return $this->render('node/show.html.twig', $data);
     }
     
     #[Route('/news/{regionLabel?}', name: 'app_news_region_label')]
@@ -148,7 +149,7 @@ class NodeController extends AbstractController
         $data = $this->data->getMisc($request->getLocale());
         $data['node'] = $this->data->findNodesByRegionLabel($region_label)[0];
 
-        return $this->render('node/detail.html.twig', $data);
+        return $this->render('node/show.html.twig', $data);
     }
 
     #[Route('/products', name: 'app_products')]
