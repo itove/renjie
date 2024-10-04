@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use App\Service\Data;
+use App\Entity\Taxon;
+use App\Entity\Category;
 
 class NodeController extends AbstractController
 {
@@ -164,10 +166,10 @@ class NodeController extends AbstractController
           $cate = 1;
         }
         if (is_null($drive_type) || empty($drive_type)) {
-          $drive_type = 1;
+          $drive_type = 0;
         }
         if (is_null($ton) || empty($ton)) {
-          $ton = 1;
+          $ton = 0;
         }
 
         $regionLabel = 'products';
@@ -182,25 +184,29 @@ class NodeController extends AbstractController
         
         $criteria = [
           'category' => $cate,
-          'category1' => $drive_type,
-          'category2' => $ton,
+          'address' => $drive_type,
+          'latitude' => $ton,
         ];
 
         $nodes = $this->data->findByRegionLabelAndCriteria($regionLabel, $criteria, $locale, $limit, $offset);
         $nodes_all = $this->data->findByRegionLabelAndCriteria($regionLabel, $criteria, $locale);
 
-        // dump($nodes);
-        // dump($nodes_all);
-        $data1 = [
-          'nodes' => $nodes,
-          'path' => $region->getName(),
-          'page_title' => $this->translator->trans('Products'),
-          'page' => $page,
-          'page_count' => ceil(count($nodes_all) / $limit),
-          'regionLabel' => $regionLabel,
-        ];
-
-        return $this->render('products/index.html.twig', array_merge($data, $data1));
+        dump($nodes);
+        dump($nodes_all);
+        $data['nodes'] = $nodes;
+        $data['path'] = $region->getName();
+        $data['page_title'] = $this->translator->trans('Products');
+        $data['page'] = $page;
+        $data['page_count'] = ceil(count($nodes_all) / $limit);
+        $data['regionLabel'] = $regionLabel;
+        $data['drive_types'] = Taxon::DRIVE_TYPES;
+        $data['tons'] = Taxon::TON;
+        $data['cates'] = $this->data->findAll([], Category::class);
+        $data['drive_type'] = $drive_type;
+        $data['ton'] = $ton;
+        $data['cate'] = $cate;
+        
+        return $this->render('products/index.html.twig', $data);
     }
 
     #[Route('/products/{nid}', requirements: ['nid' => '\d+'], name: 'app_product_show')]
