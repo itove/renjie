@@ -44,7 +44,12 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" id="feedback">
+      {% for message in app.flashes('notice') %}
+      <div class="flash-notice text-center text-success">
+          {{ message }}
+      </div>
+      {% endfor %}
     <div class="row">
       <div id="map-wrapper" class="col-12 col-md-7">
         <div id="amap-container"> </div>
@@ -55,11 +60,12 @@
             <div class="title">CONTACT US</DIV>
             <div class="desc">在线留言</div>
           </div>
-          <form>
-            <input type="text" name="name" class="form-control" placeholder="姓名" aria-label="name">
-            <input type="text" name="name" class="form-control" placeholder="电话" aria-label="name">
-            <textarea rows="5" name="name" class="form-control" placeholder="留言内容"></textarea>
+          <form action="{{ path('app_feedback_new')}}" method="post">
+            <input type="text" required name="name" class="form-control" placeholder="姓名" aria-label="name">
+            <input type="text" required name="phone" class="form-control" placeholder="电话" aria-label="name">
+            <textarea rows="5" required name="body" class="form-control" placeholder="留言内容"></textarea>
             <div class="note mb-4">* 您提交的留言我们会尽快处理，并且对您的个人信息进行私密保护。</div>
+            <input type="text" name="type" class="d-none" value="0">
             <button class="btn btn-danger">提交</button>
           </form>
         </div>
