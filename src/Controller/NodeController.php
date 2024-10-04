@@ -45,6 +45,7 @@ class NodeController extends AbstractController
     #[Route('/news', name: 'app_news_list')]
     public function listNodes(Request $request): Response
     {
+        $regionLabel = 'news';
         $locale = $request->getLocale();
         $page = $request->query->get('p');
         $limit = 5;
@@ -53,14 +54,22 @@ class NodeController extends AbstractController
         }
         $offset = $limit * ($page - 1);
 
+        $region = $this->data->getRegionByLabel($regionLabel);
+        if ($region == null) {
+            // 404;
+        }
+
+        $nodes = $this->data->findNodesByRegion($region, $locale, $limit, $offset);
+        $nodes_all = $this->data->findNodesByRegion($region, $locale);
+
         $data = $this->data->getMisc($request->getLocale());
         $data1 = [
-          //'nodes' => $nodes,
-          //'path' => $region->getName(),
-          //'page_title' => $this->translator->trans('News'),
-          //'page' => $page,
-          //'page_count' => ceil(count($nodes_all) / $limit),
-          //'regionLabel' => $regionLabel,
+          'nodes' => $nodes,
+          'path' => $region->getName(),
+          'page_title' => $this->translator->trans('News'),
+          'page' => $page,
+          'page_count' => ceil(count($nodes_all) / $limit),
+          'regionLabel' => $regionLabel,
         ];
 
         return $this->render('news/index.html.twig', array_merge($data, $data1));
