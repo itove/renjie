@@ -26,6 +26,10 @@ class FeedbackController extends AbstractController
     {
         $firstname = $request->request->get('firstname');
         $lastname = $request->request->get('lastname');
+        $sex = $request->request->get('sex');
+        $note = $request->request->get('note');
+        $province = $request->request->get('province');
+        $city = $request->request->get('city');
         $phone = $request->request->get('phone');
         $email = $request->request->get('email');
         $title = $request->request->get('title');
@@ -39,6 +43,10 @@ class FeedbackController extends AbstractController
         $f = new Feedback();
         $f->setFirstname($firstname);
         $f->setLastname($lastname);
+        $f->setSex($sex);
+        $f->setNote($note);
+        $f->setProvince($province);
+        $f->setCity($city);
         $f->setPhone($phone);
         $f->setEmail($email);
         $f->setTitle($title);
@@ -50,7 +58,7 @@ class FeedbackController extends AbstractController
 
         $this->addFlash(
             'notice',
-            '您的建议已成功提交！'
+            '您的表单已成功提交！'
         );
         
         // return $this->json('OK');
