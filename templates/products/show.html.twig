@@ -56,7 +56,12 @@
   {{ node.body|raw }}
   </div>
 
-  <div class="row reserve">
+  <div class="row reserve" id="feedback">
+      {% for message in app.flashes('notice') %}
+      <div class="flash-notice text-center text-success">
+          {{ message }}
+      </div>
+      {% endfor %}
     <div class="col-12 col-md-7 p-4 bg-cover" style="background-image: url({{ asset('images/reserve_bg.jpg') }})">
       <div class="text">
         <div class="title2lines">
@@ -66,34 +71,42 @@
       </div>
     </div>
     <div class="col-12 col-md-5">
-        <form class="text-center text-md-end">
+        <form class="text-center text-md-end" action="{{ path('app_feedback_new')}}" method="post">
         <div class="row justify-content-between">
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">姓名:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="name" required class="form-control" placeholder="" aria-label="name">
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">性别:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <select name="sex" required class="form-select" aria-label="">
+              <option selected></option>
+              <option value="0">女</option>
+              <option value="1">男</option>
+            </select>
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">电话:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="phone" required class="form-control" placeholder="" aria-label="name">
           </div>
           <div class="input-group col-12 input-group-2">
             <span class="input-group-text">省份:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <select name="province" id="provinces" required class="form-select" aria-label="">
+              <option selected></option>
+            </select>
             <div class="mx-2"></div>
             <span class="input-group-text">城市:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <select name="city" id="cities" required class="form-select" aria-label="">
+              <option selected></option>
+            </select>
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">选择吨位:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="body" required class="form-control" placeholder="" aria-label="name">
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">预算:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="note" required class="form-control" placeholder="" aria-label="name">
           </div>
         </div>
           <button class="btn btn-danger">立即预约</button>
@@ -106,4 +119,5 @@
 {% endblock %}
 
 {% block javascript %}
+<script src="{{ asset('js/pca.js')}}"></script>
 {% endblock %}
