@@ -164,10 +164,10 @@ class NodeController extends AbstractController
           $cate = 1;
         }
         if (is_null($drive_type) || empty($drive_type)) {
-          $drive_type = 0;
+          $drive_type = 1;
         }
         if (is_null($ton) || empty($ton)) {
-          $ton = 0;
+          $ton = 1;
         }
 
         $regionLabel = 'products';
