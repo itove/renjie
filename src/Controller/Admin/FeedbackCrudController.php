@@ -55,19 +55,29 @@ class FeedbackCrudController extends AbstractCrudController
         return $actions
             ->disable('new')
             ->disable('edit')
-            ->add('index', 'detail')
-            ->remove('index', 'delete')
+            // ->add('index', 'detail')
+            // ->remove('index', 'delete')
             ->addBatchAction(Action::BATCH_DELETE)
         ;
     }
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        if ($this->type == 0) {
+            yield TextField::new('name');
+            yield TextField::new('phone');
+            yield TextEditorField::new('body');
+        }
+
+        if ($this->type == 1) {
+            yield TextField::new('name');
+            yield ChoiceField::new('sex')->setChoices(['女' => 0, '男' => 1]);
+            yield TextField::new('phone');
+            yield TextField::new('province');
+            yield TextField::new('city');
+            yield TextField::new('body', 'ton');
+            yield TextField::new('note', 'budget');
+        }
     }
     
     public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
