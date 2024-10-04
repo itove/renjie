@@ -294,12 +294,12 @@ class Data
       return $nodes;
     }
     
-    public function findNodesByRegion(Region $region, $locale, $limit = null, $offset = null)
+    public function findNodesByRegion(Region $region, $locale = null, $limit = null, $offset = null)
     {
       return $this->doctrine->getRepository(Node::class)->findByRegion($region, $locale, $limit, $offset);
     }
     
-    public function findNodesByRegionLabel(string $label, $locale, $limit = null, $offset = null)
+    public function findNodesByRegionLabel(string $label, $locale = null, $limit = null, $offset = null)
     {
       return $this->doctrine->getRepository(Node::class)->findByRegionLabel($label, $locale, $limit, $offset);
     }
