@@ -210,13 +210,16 @@ class NodeCrudController extends AbstractCrudController
         $videoField = VichFileField::new('videoFile', 'Video')->hideOnIndex();
         $audioField = VichFileField::new('audioFile', 'Audio')->hideOnIndex();
         $qrField = VichImageField::new('qrFile', 'Qr')->hideOnIndex();
-        $tagsFieldOnIndex = ArrayField::new('tags')->onlyOnIndex();
-        $tagsField = AssociationField::new('tags')
-            ->onlyOnForms()
+        if ($pageName == 'index') {
+            $tagsField = ArrayField::new('tags')->onlyOnIndex();
+            $categoryField = ArrayField::new('category')->onlyOnIndex();
+        } else {
+            $tagsField = AssociationField::new('tags')
+                ->onlyOnForms()
             // ->setRequired(true)
-        ;
-        $categoryFieldOnIndex = ArrayField::new('category')->onlyOnIndex();
-        $categoryField = AssociationField::new('category')->onlyOnForms();
+            ;
+            $categoryField = AssociationField::new('category')->onlyOnForms();
+        }
         $parentField = AssociationField::new('parent')->onlyOnForms()->setDisabled();
         $childrenField = AssociationField::new('children')->setDisabled();
         $summaryField = TextareaField::new('summary')
@@ -235,7 +238,6 @@ class NodeCrudController extends AbstractCrudController
         $fields = [];
         if (!is_null($this->region)) {
             $fields = $this->region->getFields();
-            dump($fields);
             // $vichImageField->setHelp("推荐尺寸{$this->region->getDescription()}，或宽高比与之相同的尺寸。");
         } else if ($this->isGranted('ROLE_SUPER_ADMIN')) {
             $fields = Data::GetProperties(new Node());
@@ -252,11 +254,5 @@ class NodeCrudController extends AbstractCrudController
         // if (in_array('image', $fields)) {
         //     yield $vichImageField;
         // }
-        if (in_array('tags', $fields)) {
-            yield $tagsFieldOnIndex;
-        }
-        if (in_array('category', $fields)) {
-            yield $categoryFieldOnIndex;
-        }
     }
 }
