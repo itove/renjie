@@ -78,37 +78,50 @@
     </div>
   </div>
 
-  <div class="section-3 py-5">
+  <div class="section-3 py-5" id="feedback">
     <div class="container">
+      {% for message in app.flashes('notice') %}
+      <div class="flash-notice text-center text-success">
+          {{ message }}
+      </div>
+      {% endfor %}
       <div class="title mb-3">预约看车</div>
       <form class="text-center text-md-end" action="{{ path('app_feedback_new')}}" method="post">
         <div class="row justify-content-between">
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">姓名:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="name" class="form-control" required placeholder="" aria-label="name">
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">性别:</span>
-            <input type="text" name="sex" class="form-control" placeholder="" aria-label="name">
+            <select name="sex" required class="form-select" aria-label="">
+              <option selected></option>
+              <option value="0">女</option>
+              <option value="1">男</option>
+            </select>
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">电话:</span>
-            <input type="text" name="phone" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="phone" class="form-control" required placeholder="" aria-label="phone">
           </div>
           <div class="input-group col-12 col-md-4 input-group-2">
             <span class="input-group-text">省份:</span>
-            <input type="text" name="" class="form-control" placeholder="" aria-label="name">
+            <select name="province" id="provinces" required class="form-select" aria-label="">
+              <option selected></option>
+            </select>
             <div class="mx-2"></div>
             <span class="input-group-text">城市:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <select name="city" id="cities" required class="form-select" aria-label="">
+              <option selected></option>
+            </select>
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">选择吨位:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="body" class="form-control" required placeholder="" aria-label="body">
           </div>
           <div class="input-group col-12 col-md-4">
             <span class="input-group-text">预算:</span>
-            <input type="text" name="name" class="form-control" placeholder="" aria-label="name">
+            <input type="text" name="note" class="form-control" required placeholder="" aria-label="note">
           </div>
         </div>
         <button class="btn btn-danger mt-3 mb-2">立即预约</button>
@@ -227,4 +240,5 @@
 <script src="https://webapi.amap.com/maps?v=2.0&key=3713e08bba2f85ad35c1ad69943d725f"></script>
 <script src="{{ asset('js/z_map.js')}}"></script>
 <script src="{{ asset('js/z_setMapCenterByCity.js')}}"></script>
+<script src="{{ asset('js/pca.js')}}"></script>
 {% endblock %}

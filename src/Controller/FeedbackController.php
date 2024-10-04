@@ -62,6 +62,7 @@ class FeedbackController extends AbstractController
         );
         
         // return $this->json('OK');
-        return new RedirectResponse($this->generateUrl('app_contact'));
+        // return new RedirectResponse($this->generateUrl('app_contact'));
+        return new RedirectResponse($request->headers->get('referer') . '#feedback');
     }
 }
