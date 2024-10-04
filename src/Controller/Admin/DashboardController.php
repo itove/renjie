@@ -126,6 +126,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Menu Management', 'fas fa-link', Menu::class);
         yield MenuItem::linkToCrud('Tag Management', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Category Management', 'fas fa-table-cells-large', Category::class);
+        yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class)
+            ->setQueryParameter('type', 0)
+        ;
+        yield MenuItem::linkToCrud('Appointment', 'fas fa-message', Feedback::class)
+            ->setQueryParameter('type', 1)
+        ;
         
         // admin menu of regions
         // foreach ($this->regions as $region) {
@@ -143,7 +149,6 @@ class DashboardController extends AbstractDashboardController
         if ($this->isGranted('ROLE_ADMIN')) {
             // yield MenuItem::linkToCrud('Category Management', 'fas fa-list', Category::class);
             // yield MenuItem::linkToCrud('Tag Management', 'fas fa-list', Tag::class);
-            yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class);
             yield MenuItem::linkToCrud('User Management', 'fas fa-users', User::class);
             if ($_ENV['IS_MULTILINGUAL'] || ! $this->conf) {
                 yield MenuItem::linkToCrud('Settings', 'fas fa-cog', Conf::class);
