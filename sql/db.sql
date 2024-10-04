@@ -138,7 +138,13 @@ CREATE TABLE public.feedback (
     phone character varying(20) DEFAULT NULL::character varying,
     title character varying(255) DEFAULT NULL::character varying,
     body text NOT NULL,
-    country character varying(30) DEFAULT NULL::character varying
+    country character varying(30) DEFAULT NULL::character varying,
+    sex smallint,
+    province character varying(255) DEFAULT NULL::character varying,
+    city character varying(255) DEFAULT NULL::character varying,
+    note character varying(255) DEFAULT NULL::character varying,
+    name character varying(255) DEFAULT NULL::character varying,
+    type smallint
 );
 
 
@@ -709,6 +715,9 @@ ALTER TABLE ONLY public.messenger_messages ALTER COLUMN id SET DEFAULT nextval('
 --
 
 COPY public.category (id, name, label) FROM stdin;
+1	随车起重运输车	cate1
+2	汽车起重机	cate2
+3	其它	other
 \.
 
 
@@ -717,7 +726,6 @@ COPY public.category (id, name, label) FROM stdin;
 --
 
 COPY public.conf (id, language_id, sitename, keywords, description, address, phone, email, logo, updated_at, note) FROM stdin;
-4	\N	人杰特汽2	\N	\N	\N	\N	\N	\N	\N	\N
 3	\N	人杰特汽	人杰特汽	人杰特汽	\N	\N	\N	logo-66f4e56a80593405568721.png	2024-09-26 04:39:06	\N
 \.
 
@@ -730,6 +738,9 @@ COPY public.doctrine_migration_versions (version, executed_at, execution_time) F
 DoctrineMigrations\\Version20240925045608	2024-09-25 04:56:18	394
 DoctrineMigrations\\Version20240925123107	2024-09-25 12:31:11	20
 DoctrineMigrations\\Version20240929010350	2024-09-29 01:04:19	12
+DoctrineMigrations\\Version20241004050948	2024-10-04 05:09:51	16
+DoctrineMigrations\\Version20241004082716	2024-10-04 08:27:19	12
+DoctrineMigrations\\Version20241004102901	2024-10-04 10:29:04	9
 \.
 
 
@@ -737,7 +748,9 @@ DoctrineMigrations\\Version20240929010350	2024-09-29 01:04:19	12
 -- Data for Name: feedback; Type: TABLE DATA; Schema: public; Owner: rj
 --
 
-COPY public.feedback (id, node_id, firstname, lastname, email, phone, title, body, country) FROM stdin;
+COPY public.feedback (id, node_id, firstname, lastname, email, phone, title, body, country, sex, province, city, note, name, type) FROM stdin;
+18	\N	\N	\N	\N	33	\N	33	\N	0	天津市	和平区	333	111	1
+19	\N	\N	\N	\N	5555	\N	555	\N	\N	\N	\N	\N	55	0
 \.
 
 
@@ -793,7 +806,66 @@ COPY public.messenger_messages (id, body, headers, queue_name, created_at, avail
 --
 
 COPY public.node (id, language_id, category_id, parent_id, title, created_at, body, image, summary, updated_at, video, audio, qr, phone, latitude, longitude, address, price) FROM stdin;
-1	\N	\N	\N	n1	2024-09-25 12:32:50	<figure class="image"><img style="aspect-ratio:600/388;" src="/images/66f8a8e8c47c9-p-5.jpg" width="600" height="388"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p><figure class="image"><img style="aspect-ratio:600/386;" src="/images/66f8a8f668b27-p-6.jpg" width="600" height="386"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p><figure class="image"><img style="aspect-ratio:600/408;" src="/images/66f8a8ff56186-p-7.jpg" width="600" height="408"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p>	\N	东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。	2024-09-25 12:32:50	\N	\N	\N	\N	\N	\N	\N	\N
+6	\N	1	\N	公司荣誉3	2024-10-03 03:34:22	<p>公司荣誉3</p>	honor-3-66fe10be7d6d0775076913.jpg	公司荣誉3	2024-10-03 03:34:22	\N	\N	\N	0	0	\N	0	\N
+9	\N	1	\N	轮播图1	2024-10-04 01:49:21	<p>轮播图1</p>	home1-66ff55fdb6355141312297.jpg	轮播图1	2024-10-04 02:42:05	\N	\N	\N	0	0	\N	0	\N
+8	\N	1	\N	轮播图1	2024-10-04 01:49:06	<p>轮播图1</p>	home1-66ff560791e73453626871.jpg	轮播图1	2024-10-04 02:42:15	\N	\N	\N	0	0	\N	0	\N
+7	\N	1	\N	轮播图1	2024-10-04 01:48:49	<p>轮播图1轮播图1</p>	home1-66ff560f2d0cd487817194.jpg	轮播图1	2024-10-04 02:42:23	\N	\N	\N	0	0	\N	0	\N
+12	\N	1	\N	随车起重运输车2	2024-10-04 02:49:50	\N	slider-2-66ff57ced1e95179465647.jpg	\N	2024-10-04 02:49:50	\N	\N	\N	0	0	\N	0	\N
+13	\N	1	\N	随车起重运输车3	2024-10-04 02:50:16	\N	slider-2-66ff57e94e4b8575644571.jpg	\N	2024-10-04 02:50:17	\N	\N	\N	0	0	\N	0	\N
+14	\N	1	\N	汽车起重机1	2024-10-04 02:50:35	\N	slider-2-66ff57fc52706123570225.jpg	\N	2024-10-04 02:50:36	\N	\N	\N	0	0	\N	0	\N
+31	\N	1	\N	领导关怀4	2024-10-04 06:59:26	\N	concern-2-66ff924f0b818315012866.jpg	\N	2024-10-04 06:59:27	\N	\N	\N	0	0	\N	0	\N
+32	\N	1	\N	领导关怀5	2024-10-04 06:59:39	\N	concern-3-66ff925b8f58f655076767.jpg	\N	2024-10-04 06:59:39	\N	\N	\N	0	0	\N	0	\N
+40	\N	1	\N	直销活动1	2024-10-04 07:47:58	<h2><strong>直销活动</strong></h2>	honor-4-66ff9daeaf5ab427977774.jpg	\N	2024-10-04 07:47:58	\N	\N	\N	0	0	\N	0	\N
+41	\N	1	\N	促销活动1	2024-10-04 07:48:27	<p>促销活动1</p>	honor-4-66ff9dcc7e928571520588.jpg	\N	2024-10-04 07:48:28	\N	\N	\N	0	0	\N	0	\N
+42	\N	1	\N	联名活动1	2024-10-04 07:48:46	<p>联名活动1</p>	honor-3-66ff9ddec9b38516455198.jpg	\N	2024-10-04 07:48:46	\N	\N	\N	0	0	\N	0	\N
+43	\N	1	\N	定制活动1	2024-10-04 07:49:06	<p>定制活动1</p>	honor-3-66ff9df362542091947467.jpg	\N	2024-10-04 07:49:07	\N	\N	\N	0	0	\N	0	\N
+44	\N	1	\N	新闻资讯5	2024-10-04 08:06:58	<p>新闻资讯5</p>	honor-3-66ffa222b6198336573735.jpg	新闻资讯5	2024-10-04 08:06:58	\N	\N	\N	0	0	\N	0	\N
+45	\N	1	\N	新闻资讯6	2024-10-04 08:07:34	<p>新闻资讯6</p>	concern-1-66ff9550df5c8923316928-66ffa247359ac699278547.jpg	新闻资讯6	2024-10-04 08:07:35	\N	\N	\N	0	0	\N	0	\N
+46	\N	1	\N	产品1	2024-10-04 09:15:12	<p>产品1</p>	product-66ffb22114c0f592238034.png	产品1	2024-10-04 09:15:13	\N	\N	\N	0	0	\N	0	\N
+47	\N	1	\N	产品2	2024-10-04 09:17:25	<p>产品2</p>	product-66ffb2a66befe526644133.png	产品2	2024-10-04 09:17:26	\N	\N	\N	0	0	\N	0	\N
+48	\N	1	\N	产品3	2024-10-04 09:17:45	<p>产品3</p>	product-66ffb2b9f0cb8512530796.png	产品3	2024-10-04 09:17:45	\N	\N	\N	0	0	\N	0	\N
+49	\N	1	\N	产品4	2024-10-04 09:19:14	<p>产品4</p>	product-66ffb313526bb541639161.png	产品4	2024-10-04 09:19:15	\N	\N	\N	0	0	\N	0	\N
+50	\N	1	\N	产品5	2024-10-04 09:19:29	<p>产品5</p>	product-66ffb32278f13118541315.png	产品6	2024-10-04 09:19:30	\N	\N	\N	0	0	\N	0	\N
+51	\N	1	\N	产品6	2024-10-04 09:19:41	<p>产品6</p>	product-66ffb32dad2ad268426387.png	产品6	2024-10-04 09:19:41	\N	\N	\N	0	0	\N	0	\N
+52	\N	1	\N	产品7	2024-10-04 09:19:53	<p>产品7</p>	product-66ffb339f10e8584857452.png	产品7	2024-10-04 09:19:53	\N	\N	\N	0	0	\N	0	\N
+53	\N	1	\N	产品8	2024-10-04 09:20:03	<p>产品8</p>	product-66ffb3441503b033202049.png	产品8	2024-10-04 09:20:04	\N	\N	\N	0	0	\N	0	\N
+54	\N	1	\N	产品9	2024-10-04 09:20:14	<p>产品9</p>	product-66ffb34f756f4222260426.png	产品9	2024-10-04 09:20:15	\N	\N	\N	0	0	\N	0	\N
+55	\N	1	\N	产品10	2024-10-04 09:20:25	<p>产品10</p>	product-66ffb35a00fe6055158148.png	产品10	2024-10-04 09:20:26	\N	\N	\N	0	0	\N	0	\N
+56	\N	1	\N	产品11	2024-10-04 09:20:35	<p>产品11</p>	product-66ffb363e1a35551210151.png	产品11	2024-10-04 09:20:35	\N	\N	\N	0	0	\N	0	\N
+57	\N	1	\N	产品12	2024-10-04 09:20:45	<p>产品12</p>	product-66ffb36da08cb780889011.png	产品12	2024-10-04 09:20:45	\N	\N	\N	0	0	\N	0	\N
+58	\N	1	\N	产品13	2024-10-04 09:20:56	<p>产品13</p>	product-66ffb37903f3b931558553.png	产品13	2024-10-04 09:20:57	\N	\N	\N	0	0	\N	0	\N
+59	\N	1	\N	产品14	2024-10-04 09:21:06	<p>产品14</p>	product-66ffb38370a74463091111.png	产品14	2024-10-04 09:21:07	\N	\N	\N	0	0	\N	0	\N
+60	\N	1	\N	产品15	2024-10-04 09:21:17	<p>产品15</p>	product-66ffb38de0ff2042871117.png	产品15	2024-10-04 09:21:17	\N	\N	\N	0	0	\N	0	\N
+61	\N	1	\N	产品16	2024-10-04 09:21:28	<p>产品16</p>	product-66ffb39927393869025222.png	产品16	2024-10-04 09:21:29	\N	\N	\N	0	0	\N	0	\N
+3	\N	1	\N	公司荣誉-标题	2024-10-03 02:38:53	<p>人杰特种汽车将持续秉承“专业、信赖、科技”的经营理念和“严格、踏实、上进、创新”的企业精神，以“制造满足顾客需要，为用户创造更高附加值的产品”为目标，不断推陈出新，用人品打造精品，用精品服务社会，努力成为中国最全心全意为客户创造更高附加值的产品;以雄厚的经济实力、领先的技术、科学的管理、完善的服务体系缔造中国专用车更高品质。</p>	\N	\N	2024-10-03 02:38:53	\N	\N	\N	0	0	\N	0	\N
+2	\N	1	\N	公司介绍	2024-10-03 02:37:33	<p><span style="background-color:rgb(255,255,255);color:rgb(58,58,58);">湖北人杰特种汽车科技有限公司（以下简称“人杰特种汽车”），成立于2010年,坐落于中国商用车之都——东风商用车生产基地湖北省十堰市，成立10年来始终根据《中华人民共和国行政许可法》和《国务院对确需保留的行政审批项目设定行政许可的决定》的规定，遵循予以许可的汽车、摩托车、三轮汽车生产企业及产品（第309批）的公告，致力于随车起重机、汽车起重机、特种作业车以及各类特种专用车的研发、制造及营销服务。其中随车起重机实现年产销量持续高速增长，自2013年起产销量连续七年稳居全国前三，实现年销售额2亿余元。经过多年科技创新与技术沉淀，现已成为中国最具规模和市场影响力的专用车生产企业，是中国随车起重行业的领跑者。</span></p><p><span style="background-color:rgb(255,255,255);color:rgb(58,58,58);">人杰特种汽车不断突破与自我完善，形成了一整套与世界接轨的管理运作模式。先进精准的制造、检测设备配合一流生产工艺，确保公司核心技术优势得以顺利转化。高效运行的“ISO9001-2000质量认证体系”、“环境/职业健康安全管理认证体系”和“3C认证”等制度体系，保证了公司始终处于稳步、健康、可持续发展。</span></p><p><span style="background-color:rgb(255,255,255);color:rgb(58,58,58);">公司运用自主品牌、资金、渠道等资源优势，建立了覆盖全国的营销体系和服务网络，可以及时高效地为全国用户提供全生命周期服务。在深耕国内市场的同时，人杰特种汽车放眼全球，积极拓展国际市场，将公司产品远销至10多个国家和地区。</span></p><p><span style="background-color:rgb(255,255,255);color:rgb(58,58,58);">展望未来，人杰特种汽车将持续秉承“专业、信赖、科技”的经营理念和“严格、踏实、上进、创新”的企业精神，以“制造满足顾客需要，为用户创造更高附加值的产品”为目标，不断推陈出新，用人品打造精品，用精品服务社会，努力成为中国最全心全意为客户创造更高附加值的产品;以雄厚的经济实力、领先的技术、科学的管理、完善的服务体系缔造中国专用车更高品质。</span></p>	about-1-66fe0f62a9f89068537326.jpg	\N	2024-10-03 03:28:34	\N	\N	\N	0	0	\N	0	\N
+4	\N	1	\N	公司荣誉1	2024-10-03 03:33:08	<p>公司荣誉1</p>	honor-1-66fe10755a945133407463.jpg	公司荣誉1	2024-10-03 03:33:09	\N	\N	\N	0	0	\N	0	\N
+5	\N	1	\N	公司荣誉2	2024-10-03 03:33:43	<p>公司荣誉2</p>	honor-2-66fe10983ddd4901761159.jpg	公司荣誉2	2024-10-03 03:33:44	\N	\N	\N	0	0	\N	0	\N
+11	\N	1	\N	随车起重运输车1	2024-10-04 02:49:37	\N	slider-2-66ff57c290874326662134.jpg	\N	2024-10-04 02:49:38	\N	\N	\N	0	0	\N	0	\N
+15	\N	1	\N	汽车起重机2	2024-10-04 02:50:44	\N	slider-2-66ff58050ccee948835263.jpg	\N	2024-10-04 02:50:45	\N	\N	\N	0	0	\N	0	\N
+16	\N	1	\N	汽车起重机3	2024-10-04 02:50:53	\N	slider-2-66ff580e29b6a692743509.jpg	\N	2024-10-04 02:50:54	\N	\N	\N	0	0	\N	0	\N
+17	\N	1	\N	汽车起重机4	2024-10-04 02:52:26	\N	slider-2-66ff586aea1db841978379.jpg	\N	2024-10-04 02:52:26	\N	\N	\N	0	0	\N	0	\N
+28	\N	1	\N	领导关怀1	2024-10-04 06:58:53	\N	concern-1-66ff922e20d7f206300976.jpg	\N	2024-10-04 06:58:54	\N	\N	\N	0	0	\N	0	\N
+29	\N	1	\N	领导关怀2	2024-10-04 06:59:01	\N	concern-1-66ff923638d1a785277088.jpg	\N	2024-10-04 06:59:02	\N	\N	\N	0	0	\N	0	\N
+18	\N	1	\N	新闻资讯1	2024-10-04 03:05:55	\N	slider-3-2-66ff7320b0436778633242.jpg	新闻资讯1	2024-10-04 04:46:24	\N	\N	\N	0	0	\N	0	\N
+21	\N	1	\N	新闻资讯4	2024-10-04 04:45:24	\N	slider-3-1-66ff72e55cdba636889373.jpg	新闻资讯4	2024-10-04 04:45:25	\N	\N	\N	0	0	\N	0	\N
+20	\N	1	\N	新闻资讯3	2024-10-04 03:06:58	\N	slider-3-3-66ff5bd2f123a038329562.jpg	新闻资讯3	2024-10-04 03:06:58	\N	\N	\N	0	0	\N	0	\N
+19	\N	1	\N	新闻资讯2	2024-10-04 03:06:48	\N	slider-3-2-66ff5bc97ed11079260421.jpg	新闻资讯2	2024-10-04 03:06:49	\N	\N	\N	0	0	\N	0	\N
+22	\N	1	\N	员工风采1	2024-10-04 06:57:09	\N	staff-1-66ff91c62ef3e538211968.jpg	\N	2024-10-04 06:57:10	\N	\N	\N	0	0	\N	0	\N
+23	\N	1	\N	员工风采2	2024-10-04 06:57:30	\N	staff-2-66ff91db8e7d7463412672.jpg	\N	2024-10-04 06:57:31	\N	\N	\N	0	0	\N	0	\N
+24	\N	1	\N	员工风采3	2024-10-04 06:57:44	\N	staff-3-66ff91e894066816179626.jpg	\N	2024-10-04 06:57:44	\N	\N	\N	0	0	\N	0	\N
+25	\N	1	\N	员工风采4	2024-10-04 06:57:56	\N	staff-4-66ff91f51307e572443325.jpg	\N	2024-10-04 06:57:57	\N	\N	\N	0	0	\N	0	\N
+26	\N	1	\N	员工风采5	2024-10-04 06:58:09	\N	staff-5-66ff9201c3b32314534441.jpg	\N	2024-10-04 06:58:09	\N	\N	\N	0	0	\N	0	\N
+27	\N	1	\N	员工风采6	2024-10-04 06:58:19	\N	staff-6-66ff920c499d2636344306.jpg	\N	2024-10-04 06:58:20	\N	\N	\N	0	0	\N	0	\N
+30	\N	1	\N	领导关怀3	2024-10-04 06:59:09	\N	concern-1-66ff923de88ee753371811.jpg	\N	2024-10-04 06:59:09	\N	\N	\N	0	0	\N	0	\N
+1	\N	1	\N	n1	2024-09-25 12:32:50	<figure class="image"><img style="aspect-ratio:600/388;" src="/images/66f8a8e8c47c9-p-5.jpg" width="600" height="388"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p><figure class="image"><img style="aspect-ratio:600/386;" src="/images/66f8a8f668b27-p-6.jpg" width="600" height="386"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p><figure class="image"><img style="aspect-ratio:600/408;" src="/images/66f8a8ff56186-p-7.jpg" width="600" height="408"></figure><p><span style="background-color:rgb(255,255,255);color:rgb(102,102,102);">东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。</span></p>	\N	东风牌DFH5310JSQAX1V随车起重运输车又称随车吊，是在东风商用车生产的天龙8×7随车吊专用底盘基础上加装重汽希尔博牌ST300型随车起重机，由全液压泵系统，实现快速升降，回转、吊运物体的一款高效卓越的专用车。广泛适用于城镇市政管理、供水、供电等检修、维护作业，还适用于汽车行业4S店的维修检修作业，码头港口集装箱的装卸，具有高效、快捷、安全、方便的特点。	2024-09-25 12:32:50	\N	\N	\N	0	0	\N	0	\N
+33	\N	1	\N	领导关怀6	2024-10-04 06:59:52	\N	concern-4-66ff926930db7790162832.jpg	\N	2024-10-04 06:59:53	\N	\N	\N	0	0	\N	0	\N
+34	\N	1	\N	领导关怀7	2024-10-04 07:00:08	\N	concern-5-66ff92789316c946314544.jpg	\N	2024-10-04 07:00:08	\N	\N	\N	0	0	\N	0	\N
+35	\N	1	\N	公司荣誉4	2024-10-04 07:05:54	\N	honor-4-66ff93d393c19974553683.jpg	\N	2024-10-04 07:05:55	\N	\N	\N	0	0	\N	0	\N
+36	\N	1	\N	领导关怀-轮播图1	2024-10-04 07:12:03	\N	concern-1-66ff9543cd860412489026.jpg	\N	2024-10-04 07:12:03	\N	\N	\N	0	0	\N	0	\N
+37	\N	1	\N	领导关怀-轮播图2	2024-10-04 07:12:16	\N	concern-1-66ff9550df5c8923316928.jpg	\N	2024-10-04 07:12:16	\N	\N	\N	0	0	\N	0	\N
+38	\N	1	\N	领导关怀-轮播图3	2024-10-04 07:12:26	\N	concern-1-66ff955b4c655619025533.jpg	\N	2024-10-04 07:12:27	\N	\N	\N	0	0	\N	0	\N
+39	\N	1	\N	新品上市1	2024-10-04 07:38:44	<p>新品上市1</p>	honor-3-66ff9b856f908086578656.jpg	\N	2024-10-04 07:38:45	\N	\N	\N	0	0	\N	0	\N
 \.
 
 
@@ -803,6 +875,65 @@ COPY public.node (id, language_id, category_id, parent_id, title, created_at, bo
 
 COPY public.node_region (node_id, region_id) FROM stdin;
 1	1
+2	7
+3	13
+4	8
+5	8
+6	8
+7	1
+8	1
+9	1
+11	3
+12	3
+13	3
+14	4
+15	4
+16	4
+17	4
+18	12
+19	12
+20	12
+21	12
+22	9
+23	9
+24	9
+25	9
+26	9
+27	9
+28	10
+29	10
+30	10
+31	10
+32	10
+33	10
+34	10
+35	8
+36	15
+37	15
+38	15
+39	14
+40	16
+41	17
+42	18
+43	19
+44	12
+45	12
+46	11
+47	11
+48	11
+49	11
+50	11
+51	11
+52	11
+53	11
+54	11
+55	11
+56	11
+57	11
+58	11
+59	11
+60	11
+61	11
 \.
 
 
@@ -829,6 +960,11 @@ COPY public."order" (id, node_id, consumer_id, quantity, amount, created_at, pai
 COPY public.page (id, name, label) FROM stdin;
 1	首页	home
 2	页脚	footer
+3	关于我们	about
+4	售后服务	services
+5	产品专题	topics
+6	产品中心	products
+7	新闻资讯	news
 \.
 
 
@@ -845,8 +981,25 @@ COPY public.refund (id, ord_id, created_at, reason, note, sn, wx_refund_id) FROM
 --
 
 COPY public.region (id, page_id, name, label, count, icon, fields, description) FROM stdin;
-1	1	轮播图	slide	4	\N	body,image,summary,regions,tags,createdAt,images	\N
 2	\N	页脚	footer	1	\N	\N	\N
+12	7	新闻资讯	news	5	\N	body,image,summary,tags,createdAt	\N
+11	6	产品中心	products	15	\N	body,image,summary,tags,specs,images,category,phone,address,createdAt	\N
+1	1	轮播图-1	slide_1	3	\N	body,image,summary,regions,tags,createdAt,images	\N
+19	5	定制活动	topic_customize	1	\N	createdAt,body,image,summary,tags	\N
+18	5	联名活动	topic_co	1	\N	createdAt,body,image,summary,tags	\N
+17	5	促销活动	topic_promote	1	\N	createdAt,body,image,summary,tags	\N
+16	5	直销活动	topic_direct	1	\N	createdAt,body,image,summary,tags	\N
+15	3	领导关怀-轮播图	concern_slide	5	\N	createdAt,body,image,summary,tags	\N
+14	5	新品上市	topic_new	5	\N	createdAt,body,image,summary,tags	\N
+13	3	公司荣誉-标题	honor_title	1	\N	createdAt,body,image,summary,tags	\N
+10	3	领导关怀	concern	4	\N	createdAt,body,image,summary,tags	\N
+9	3	员工风采	staff	6	\N	createdAt,body,image,summary,tags	\N
+8	3	公司荣誉	honor	4	\N	createdAt,body,image,summary,tags	\N
+6	\N	轮播图-3	slide_3	5	\N	createdAt,body,image,summary,tags	\N
+5	\N	轮播图-2-3	slide_2_3	5	\N	createdAt,image,body,summary,tags,specs,images,category	\N
+4	1	轮播图-汽车起重机	slide_2_2	5	\N	createdAt,body,image,summary,tags,specs,images,category	\N
+3	1	轮播图-起重运输车	slide_2_1	5	\N	createdAt,body,image,summary,tags,specs,images,category	\N
+7	3	公司介绍	intro	1	\N	body,image,summary,tags,createdAt	\N
 \.
 
 
@@ -884,6 +1037,7 @@ COPY public.tag (id, name, label) FROM stdin;
 
 COPY public."user" (id, username, roles, password, plain_password, openid, name, phone, avatar) FROM stdin;
 1	al	["ROLE_SUPER_ADMIN"]	$2y$13$ryGwjOzYPJM2hbLAOH.fYeeR2Z2IQrDDbxLbk.4w9C2v6z7newd82	\N	\N	al	\N	\N
+2	admin	["ROLE_ADMIN"]	$2y$13$lA1mUOaYcrjxs.ENWphige833NEIA0Kx37TIH4YXKzWBfCVHe6ic.	\N	\N	admin	\N	\N
 \.
 
 
@@ -899,7 +1053,7 @@ COPY public.user_node (user_id, node_id) FROM stdin;
 -- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.category_id_seq', 1, false);
+SELECT pg_catalog.setval('public.category_id_seq', 3, true);
 
 
 --
@@ -913,7 +1067,7 @@ SELECT pg_catalog.setval('public.conf_id_seq', 4, true);
 -- Name: feedback_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.feedback_id_seq', 1, false);
+SELECT pg_catalog.setval('public.feedback_id_seq', 19, true);
 
 
 --
@@ -955,7 +1109,7 @@ SELECT pg_catalog.setval('public.messenger_messages_id_seq', 1, false);
 -- Name: node_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.node_id_seq', 1, true);
+SELECT pg_catalog.setval('public.node_id_seq', 61, true);
 
 
 --
@@ -969,7 +1123,7 @@ SELECT pg_catalog.setval('public.order_id_seq', 1, false);
 -- Name: page_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.page_id_seq', 2, true);
+SELECT pg_catalog.setval('public.page_id_seq', 7, true);
 
 
 --
@@ -983,7 +1137,7 @@ SELECT pg_catalog.setval('public.refund_id_seq', 1, false);
 -- Name: region_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.region_id_seq', 2, true);
+SELECT pg_catalog.setval('public.region_id_seq', 19, true);
 
 
 --
@@ -1004,7 +1158,7 @@ SELECT pg_catalog.setval('public.tag_id_seq', 1, false);
 -- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rj
 --
 
-SELECT pg_catalog.setval('public.user_id_seq', 1, true);
+SELECT pg_catalog.setval('public.user_id_seq', 2, true);
 
 
 --
