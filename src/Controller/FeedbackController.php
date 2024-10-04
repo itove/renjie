@@ -26,6 +26,7 @@ class FeedbackController extends AbstractController
     {
         $firstname = $request->request->get('firstname');
         $lastname = $request->request->get('lastname');
+        $name = $request->request->get('name');
         $sex = $request->request->get('sex');
         $note = $request->request->get('note');
         $province = $request->request->get('province');
@@ -43,6 +44,7 @@ class FeedbackController extends AbstractController
         $f = new Feedback();
         $f->setFirstname($firstname);
         $f->setLastname($lastname);
+        $f->setName($name);
         $f->setSex($sex);
         $f->setNote($note);
         $f->setProvince($province);
