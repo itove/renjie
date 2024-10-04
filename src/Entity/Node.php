@@ -23,9 +23,6 @@ class Node
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
-
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $body = null;
 
@@ -44,9 +41,6 @@ class Node
 
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'nodes')]
     private Collection $tags;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'nodes')]
     private ?Language $language = null;
@@ -103,6 +97,12 @@ class Node
 
     #[ORM\Column(nullable: true)]
     private ?int $price = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     public function __construct()
     {
