@@ -29,10 +29,8 @@
       <div class="big d-none d-md-block">INTRODUCTION </div>
     </div>
     <div class="row">
-      <img class="col-12 col-md-7" src="{{ asset('images/about-1.jpg') }}">
-      <div class="col-12 col-md-5 content">
-  无锡红光标牌有限公司是一家集研发、生产、销售和服务于一体的专业标牌生产厂家。注册资金500万人民币。主要生产塑料基材、软塑透明 #1
-      </div>
+      <img class="col-12 col-md-7 object-fit-cover" src="{{ asset("images/#{intro[0].image}") }}">
+      <div class="col-12 col-md-5 content">{{ intro[0].body|raw}}</div>
     </div>
   </div>
 
@@ -49,14 +47,14 @@
       </div>
 
       <div class="row list">
-        {% for i in range(1,4) %}
+        {% for i in honor %}
         <div class="col-12 col-md-6">
-          <img class="" src="{{ asset("images/honor-#{i}.jpg") }}">
-          <div class="title"><span class="dot">●</span> 不断吸收新技术</div>
+          <img class="" src="{{ asset("images/#{i.image}") }}">
+          <div class="title"><span class="dot">●</span>{{i.title}}</div>
         </div>
         {% endfor %}
       </div>
-      <div class="text">企企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍企业荣誉介绍业荣誉介绍</div>
+      <div class="text">{{ honor_title[0].body|raw}}</div>
     </div>
   </div>
 
@@ -73,9 +71,9 @@
       </div>
 
       <div class="row list">
-        {% for i in range(1,6) %}
+        {% for i in staff %}
         <div class="col-12 col-md-4">
-          <img class="" src="{{ asset("images/staff-#{i}.jpg") }}">
+          <img class="" src="{{ asset("images/#{i.image}") }}">
         </div>
         {% endfor %}
       </div>
@@ -99,35 +97,21 @@
           <div class="swiper">
             <div class="swiper-wrapper">
               <!-- slides -->
-              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
+              {% for i in concern_slide %}
+              <div class="swiper-slide" style="background-image: url({{asset("images/#{i.image}")}})">
                 <div class="img"></div>
-                <div class="title">不断吸收新技术</div>
+                <div class="title">{{i.title}}</div>
               </div>
-              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-                <div class="img"></div>
-                <div class="title">不断吸收新技术</div>
-              </div>
-              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-                <div class="img"></div>
-                <div class="title">不断吸收新技术</div>
-              </div>
-              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-                <div class="img"></div>
-                <div class="title">不断吸收新技术</div>
-              </div>
-              <div class="swiper-slide" style="background-image: url({{asset('images/concern-1.jpg')}})">
-                <div class="img"></div>
-                <div class="title">不断吸收新技术</div>
-              </div>
+              {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
           </div>
         </div>
 
-        {% for i in range(2,5) %}
+        {% for i in concern %}
         <div class="col-12 col-md-4">
-          <img class="img" src="{{ asset("images/concern-#{i}.jpg") }}">
-          <div class="title">不断吸收新技术</div>
+          <img class="img" src="{{ asset("images/#{i.image}") }}">
+          <div class="title">{{i.title}}</div>
         </div>
         {% endfor %}
       </div>

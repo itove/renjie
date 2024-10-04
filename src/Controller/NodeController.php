@@ -118,7 +118,8 @@ class NodeController extends AbstractController
     #[Route('/about', name: 'app_about')]
     public function aboutUs(Request $request): Response
     {
-        $data = $this->data->getMisc($request->getLocale());
+        $data = $this->data->getPageContent('about', $request->getLocale());
+        dump($data);
 
         return $this->render('about.html.twig', $data);
     }
