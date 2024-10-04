@@ -157,7 +157,50 @@ class NodeController extends AbstractController
     {
         $data = $this->data->getMisc($request->getLocale());
 
-        return $this->render('products/index.html.twig', $data);
+        $cate = $request->query->get('c');
+        $drive_type = $request->query->get('d');
+        $ton = $request->query->get('t');
+        if (is_null($cate) || empty($cate)) {
+          $cate = 1;
+        }
+        if (is_null($drive_type) || empty($drive_type)) {
+          $drive_type = 0;
+        }
+        if (is_null($ton) || empty($ton)) {
+          $ton = 0;
+        }
+
+        $regionLabel = 'products';
+        $region = $this->data->getRegionByLabel($regionLabel);
+        $locale = $request->getLocale();
+        $page = $request->query->get('p');
+        $limit = 15;
+        if (is_null($page) || empty($page)) {
+          $page = 1;
+        }
+        $offset = $limit * ($page - 1);
+        
+        $criteria = [
+          'category' => $cate,
+          'category1' => $drive_type,
+          'category2' => $ton,
+        ];
+
+        $nodes = $this->data->findByRegionLabelAndCriteria($regionLabel, $criteria, $locale, $limit, $offset);
+        $nodes_all = $this->data->findByRegionLabelAndCriteria($regionLabel, $criteria, $locale);
+
+        // dump($nodes);
+        // dump($nodes_all);
+        $data1 = [
+          'nodes' => $nodes,
+          'path' => $region->getName(),
+          'page_title' => $this->translator->trans('Products'),
+          'page' => $page,
+          'page_count' => ceil(count($nodes_all) / $limit),
+          'regionLabel' => $regionLabel,
+        ];
+
+        return $this->render('products/index.html.twig', array_merge($data, $data1));
     }
 
     #[Route('/products/{nid}', requirements: ['nid' => '\d+'], name: 'app_product_show')]

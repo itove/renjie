@@ -48,21 +48,18 @@
   </div>
 
   <div class="products-wrapper row mt-5">
-    {% for i in range(0,14)%}
+    {% for i in nodes %}
     <div class="col-12 col-md-4 px-md-5">
       <a href="{{path('app_product_show', {nid: 1})}}">
       <div class="img">
-        <img src="{{ asset('images/product.png')}}">
+        <img src="{{ asset("images/#{i.image}")}}">
       </div>
-      <div class="title text-center">产品1</div>
+      <div class="title text-center">{{ i.title }}</div>
       </a>
     </div>
     {% endfor %}
   </div>
 </div>
-
-{% set page = 5 %}
-{% set page_count = 5 %}
 
   <div class="d-flex justify-content-center mb-5">
     <ul class="pagination">

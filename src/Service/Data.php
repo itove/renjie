@@ -311,6 +311,14 @@ class Data
         
       return $conf;
     }
+
+    /**
+     * 
+     */
+    public function findByRegionLabelAndCriteria($region_label, $criteria, $locale = null, $limit = null, $offset = null)
+    {
+      return $this->doctrine->getRepository(Node::class)->findByRegionLabelAndCriteria($region_label, $criteria, $locale, $limit, $offset);
+    }
     
     public function findBy($criteria, $entity = Node::class)
     {
