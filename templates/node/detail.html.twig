@@ -5,12 +5,24 @@
 {% endblock %}
 
 {% block main %}
+<div class="hero" style="background-image: url({{ asset("images/#{node.image}") }})">
+  <div class="container">
+    <div class="text">
+      <div class="title2lines">
+        <div class="title"></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<!--详情内容-->
-	<div class="container detailbox">
-    <h3>{{ node.title }}</h3>
+	<div class="container">
+    <h3 class="node-title py-5">{{ node.title }}</h3>
       {{ node.body|raw }}
 	</div>
 	
+{#
 	<!--上一頁下一頁-->
 	<div class="upanddown">
 		<div class="container updownbox">
@@ -22,9 +34,9 @@
       {% endif %}
 		</div>
 	</div>
+#}
 
 {% endblock %}
 
-    {% block javascript %}
-<script src="/js/newsdetail.js?version=1.8"></script>
-    {% endblock %}
+{% block javascript %}
+{% endblock %}

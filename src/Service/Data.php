@@ -276,11 +276,11 @@ class Data
         return $nodes;
     }
     
-    public function findNodeByRegionAndLocale($region_label, $locale)
+    public function findNodeByRegionAndLocale($region_label, $locale = null)
     {
       $language = $this->findOneBy(['locale' => $locale], Language::class);
       $region = $this->findOneBy(['label' => $region_label], Region::class);
-      $node = $this->findOneBy(['language' => $language, 'region' => $region]);
+      $node = $this->findOneBy(['language' => $language, 'regions' => $region]);
         
       return $node;
     }

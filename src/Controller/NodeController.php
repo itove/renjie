@@ -132,12 +132,14 @@ class NodeController extends AbstractController
         return $this->render('topic/index.html.twig', $data);
     }
 
-    #[Route('topic/{nid}', requirements: ['nid' => '\d+'], name: 'app_topic_show')]
-    public function showTopic(int $nid, Request $request): Response
+    #[Route('topic/{type}', requirements: ['type' => '\w+'], name: 'app_topic_show')]
+    public function showTopic(string $type, Request $request): Response
     {
+        $region_label = 'topic_' . $type;
         $data = $this->data->getMisc($request->getLocale());
+        $data['node'] = $this->data->findNodesByRegionLabel($region_label)[0];
 
-        return $this->render('topic/show.html.twig', $data);
+        return $this->render('node/detail.html.twig', $data);
     }
 
     #[Route('/products', name: 'app_products')]
