@@ -185,14 +185,12 @@ class NodeController extends AbstractController
         $criteria = [
           'category' => $cate,
           'address' => $drive_type,
-          'latitude' => $ton,
+          'phone' => $ton,
         ];
 
         $nodes = $this->data->findByRegionLabelAndCriteria($regionLabel, $criteria, $locale, $limit, $offset);
         $nodes_all = $this->data->findByRegionLabelAndCriteria($regionLabel, $criteria, $locale);
 
-        dump($nodes);
-        dump($nodes_all);
         $data['nodes'] = $nodes;
         $data['path'] = $region->getName();
         $data['page_title'] = $this->translator->trans('Products');

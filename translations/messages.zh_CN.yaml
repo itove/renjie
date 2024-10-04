@@ -10,8 +10,10 @@ Price: 价格
 Date: 日期
 Name: 名称
 Contact: 联系人
-Phone: 电话
-Address: 详细地址
+# Phone: 电话
+Phone: 吨位
+#Address: 详细地址
+Address: 驱动形式
 Username: 用户名
 Password: 密码
 Roles: 角色
