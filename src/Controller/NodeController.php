@@ -131,7 +131,6 @@ class NodeController extends AbstractController
     public function aboutUs(Request $request): Response
     {
         $data = $this->data->getPageContent('about', $request->getLocale());
-        dump($data);
 
         return $this->render('about.html.twig', $data);
     }
