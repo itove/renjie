@@ -75,8 +75,8 @@ class FeedbackCrudController extends AbstractCrudController
             yield TextField::new('phone');
             yield TextField::new('province');
             yield TextField::new('city');
-            yield TextField::new('body', 'ton');
-            yield TextField::new('note', 'budget');
+            yield TextField::new('body', 'Ton');
+            yield TextField::new('note', 'Budget');
         }
     }
     

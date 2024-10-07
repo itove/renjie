@@ -191,8 +191,8 @@ class NodeCrudController extends AbstractCrudController
         $titleField = TextField::new('title');
         $phoneField = TextField::new('phone');
         $addressField = TextField::new('address');
-        $phoneField = ChoiceField::new('phone')->setChoices(array_flip(Taxon::TON));
-        $addressField = ChoiceField::new('address')->setChoices(array_flip(Taxon::DRIVE_TYPES));
+        $phoneField = ChoiceField::new('phone', 'Ton')->setChoices(array_flip(Taxon::TON));
+        $addressField = ChoiceField::new('address', 'Drive Type')->setChoices(array_flip(Taxon::DRIVE_TYPES));
         // $imageField = ImageField::new('image')
         //     ->onlyOnIndex()
         //     ->setBasePath('images/')
