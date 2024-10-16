@@ -1,5 +1,5 @@
 .main{
-  padding-top: 4.5rem;
+  padding-top: 2rem;
   .text{
     padding-top: 3rem;
     padding-bottom: 1rem;
@@ -54,6 +54,27 @@
 }
 .bar, .sectioin-6{
   align-content: center;
+}
+.guarantee{
+  font-size: 22px;
+  .icon-link {
+    display: inline-flex;
+    gap: .375rem;
+    align-items: center;
+    -webkit-text-decoration-color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 0.5)) !important;
+    text-decoration-color: rgb(0 0 0 / 50%) !important;
+    text-underline-offset: 0.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-decoration: underline;
+  }
+  .icon-link>.bi {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    fill: currentcolor;
+    transition: .2s ease-in-out transform;
+  }
 }
 
 @media (min-width: 768px) {

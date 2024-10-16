@@ -224,6 +224,16 @@ class NodeController extends AbstractController
         return $this->render('services.html.twig', $data);
     }
 
+    #[Route('/services/guarantee ', name: 'app_guarantee')]
+    public function guarantee(Request $request): Response
+    {
+        $data = $this->data->getMisc($request->getLocale());
+
+        $data['node'] = $this->data->findNodesByRegionLabel('guarantee', 'null', 1)[0];
+
+        return $this->render('node/show.html.twig', $data);
+    }
+
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request): Response
     {

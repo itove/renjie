@@ -20,8 +20,10 @@
 
 	<!--详情内容-->
 	<div class="container">
+    {% if node.image %}
     <img class="w-100 mt-5" src="{{asset("images/#{node.image}")}}">
-    <h3 class="node-title py-5">{{ node.title }}</h3>
+    {% endif %}
+    <h3 class="node-title py-5 text-center">{{ node.title }}</h3>
       {{ node.body|raw }}
 	</div>
 	
