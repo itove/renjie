@@ -72,17 +72,6 @@ const swiper2_6 = new Swiper('.swiper-2-6', {
     prevEl: ".swiper-2-6 .swiper-button-prev",
   },
 });
-const swiper2_7 = new Swiper('.swiper-2-7', {
-  loop: true,
-  pagination: {
-    el: '.swiper-2-7 .swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-2-7 .swiper-button-next",
-    prevEl: ".swiper-2-7 .swiper-button-prev",
-  },
-});
 const switchs = document.querySelectorAll('.switch button');
 
 const activeBtn = (id) => {
