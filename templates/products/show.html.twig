@@ -53,6 +53,14 @@
   <div class="table-responsive ">
   <table class="table table-hover table-bordered">
     <tbody>
+        <tr>
+          <th>车辆名称</th>
+          <td>{{ node.title }}</td>
+        </tr>
+        <tr>
+          <th>车辆类型</th>
+          <td>{{ node.category.name }}</td>
+        </tr>
       {% for i in node.specs %}
         <tr>
           <th>{{i.name}}</th>
