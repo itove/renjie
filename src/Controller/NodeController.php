@@ -210,7 +210,7 @@ class NodeController extends AbstractController
     public function showProduct(int $nid, Request $request): Response
     {
         $data = $this->data->getMisc($request->getLocale());
-        $node = $this->data->getNode(1);
+        $node = $this->data->getNode($nid);
         $data['node'] = $node;
 
         return $this->render('products/show.html.twig', $data);
