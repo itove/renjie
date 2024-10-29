@@ -18,9 +18,8 @@ class Taxon
     
     public const DRIVE_TYPES = [
         '4x2',
+        '6x4',
         '8x4',
-        '10x4',
-        '其它',
     ];
     
 
