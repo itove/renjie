@@ -20,7 +20,13 @@
   <div class="images images-1 row">
     {% for i in node.images|slice(0,4) %}
     <div class="col-12 col-md-6">
-      <img src="{{ asset("images/#{i.image}") }}">
+
+      {% if i.image starts with 'http' %}
+      <img src="{{ i.image }}">
+      {% else %}
+      <img src="{{ asset("images/#{i.image}")}}">
+      {% endif %}
+
       <div class="title">{{i.title}}</div>
     </div>
     {% endfor %}
@@ -29,7 +35,13 @@
   <div class="images images-2 row">
     {% for i in node.images|slice(4, ) %}
     <div class="col-12 col-md-4 mb-1">
-      <img src="{{ asset("images/#{i.image}") }}">
+
+      {% if i.image starts with 'http' %}
+      <img src="{{ i.image }}">
+      {% else %}
+      <img src="{{ asset("images/#{i.image}")}}">
+      {% endif %}
+
     </div>
     {% endfor %}
   </div>
