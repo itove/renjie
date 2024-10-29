@@ -23,7 +23,7 @@ class TController extends AbstractController
         $this->data = $data;
     }
 
-    #[Route('/t', name: 'app_t')]
+    // #[Route('/t', name: 'app_t')]
     public function index(Request $request): Response
     {
         $data = $this->data->getMisc($request->getLocale());
