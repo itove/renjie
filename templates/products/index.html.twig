@@ -27,6 +27,8 @@
       </a>
       {% endfor %}
     </div>
+
+    {% if cate == 1 %}
     <div class="btns btns2">
       <button class="btn btn-dark">驱动形式:</button>
       {% for i in drive_types %}
@@ -45,6 +47,7 @@
       </a>
       {% endfor %}
     </div>
+    {% endif %}
   </div>
 
   <div class="products-wrapper row mt-5">
