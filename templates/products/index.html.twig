@@ -52,7 +52,7 @@
 
   <div class="products-wrapper row mt-5">
     {% for i in nodes %}
-    <div class="col-12 col-md-4 px-md-5">
+    <div class="col-12 col-md-4">
       <a href="{{path('app_product_show', {nid: i.id})}}">
       <div class="img">
         {% if i.image starts with 'http' %}
