@@ -39,6 +39,50 @@ const swiper2_3 = new Swiper('.swiper-2-3', {
     prevEl: ".swiper-2-3 .swiper-button-prev",
   },
 });
+const swiper2_4 = new Swiper('.swiper-2-4', {
+  loop: true,
+  pagination: {
+    el: '.swiper-2-4 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-2-4 .swiper-button-next",
+    prevEl: ".swiper-2-4 .swiper-button-prev",
+  },
+});
+const swiper2_5 = new Swiper('.swiper-2-5', {
+  loop: true,
+  pagination: {
+    el: '.swiper-2-5 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-2-5 .swiper-button-next",
+    prevEl: ".swiper-2-5 .swiper-button-prev",
+  },
+});
+const swiper2_6 = new Swiper('.swiper-2-6', {
+  loop: true,
+  pagination: {
+    el: '.swiper-2-6 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-2-6 .swiper-button-next",
+    prevEl: ".swiper-2-6 .swiper-button-prev",
+  },
+});
+const swiper2_7 = new Swiper('.swiper-2-7', {
+  loop: true,
+  pagination: {
+    el: '.swiper-2-7 .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-2-7 .swiper-button-next",
+    prevEl: ".swiper-2-7 .swiper-button-prev",
+  },
+});
 const switchs = document.querySelectorAll('.switch button');
 
 const activeBtn = (id) => {
