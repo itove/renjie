@@ -11,6 +11,9 @@ use App\Service\Data;
 use App\Entity\Node;
 use App\Entity\Region;
 use App\Entity\Category;
+use App\Entity\Spec;
+use App\Entity\Image;
+use Symfony\Component\DomCrawler\Crawler;
 
 class TController extends AbstractController
 {
@@ -33,13 +36,10 @@ class TController extends AbstractController
             'clmc' => '',
         ];
 
+        // $url2 = "https://www.cn-truck.com/index.php?m=gonggao&c=index&a=showgg&clxh=XCL5410JQZ&pc=378&cx=0"; #&pc=385&cx=0
+        // $html = $this->httpClient->request('GET', $url2)->getContent();
+        // $crawler = new Crawler($html);
 
-            $url2 = "https://www.cn-truck.com/index.php?m=gonggao&c=index&a=showgg&clxh=XCL5410JQZ&pc=378&cx=0"; #&pc=385&cx=0
-            // $url2 = "https://www.cn-truck.com/index.php?m=gonggao&c=index&a=showgg&clxh={$i['clxh']}"; #&pc=385&cx=0
-            dump($url2);
-            $content = $this->httpClient->request('GET', $url2)->getContent();
-            dump($content);
-        
         $em = $this->data->getEntityManager();
         $region = $this->data->getRegionByLabel('products');
 
@@ -56,7 +56,7 @@ class TController extends AbstractController
                 // dump($i['cpmc']);
                 
                 $p = $em->getRepository(Node::class)->findOneBy(['title' => $i['cpmc']]);
-                dump($p);
+                // dump($p);
                 if (null === $p) {
                     $p = new Node();
                     $p->setTitle($i['cpmc']);
@@ -64,14 +64,45 @@ class TController extends AbstractController
                     $p->setCategory($cate);
                     $p->setAddress(0);
                     $p->setPhone(0);
-                } else {
-                    $p->addRegion($region);
-                    $p->setCategory($cate);
-                    $p->setAddress(0);
-                    $p->setPhone(0);
-                }
 
-                if (null === $p) {
+                    // $url2 = "https://www.cn-truck.com/index.php?m=gonggao&c=index&a=showgg&clxh=XCL5410JQZ&pc=378&cx=0"; #&pc=385&cx=0
+                    $url2 = "https://www.cn-truck.com/index.php?m=gonggao&c=index&a=showgg&clxh={$i['clxh']}"; #&pc=385&cx=0
+                    $html = $this->httpClient->request('GET', $url2)->getContent();
+                    $crawler = new Crawler($html);
+                    $tds = $crawler->filterXPath('//table')->first()->filterXPath('//tbody')->eq(3)->filterXPath('//td');
+                    // $tds = $crawler->filter('table')->first()->filter('tbody')->eq(3)->filter('td');
+                    // dump($tds);
+
+                    $imgNodes = $crawler->filterXPath('//div[@class="img"]/img');
+                    // dump($imgNodes);
+                    // 
+                    
+                    $i = 0;
+                    foreach ($imgNodes as $e) {
+                        // dump($e->getAttribute('src'));
+                        if ($i === 0) {
+                            $p->setImage($e->getAttribute('src'));
+                        }
+                        $image = new Image();
+                        $image->setImage($e->getAttribute('src'));
+                        $p->addImage($image);
+                        $em->persist($image);
+                    }
+
+                    $i = 0;
+                    foreach ($tds as $td) {
+                        // dump($td->nodeValue);
+                        if ($i % 2 === 0) {
+                            $s = new Spec();
+                            // $s->setNode($p);
+                            $s->setName($td->nodeValue);
+                        } else {
+                            $s->setValue($td->nodeValue);
+                            $p->addSpec($s);
+                            $em->persist($s);
+                        }
+                        $i++;
+                    }
                     $em->persist($p);
                 }
             }
