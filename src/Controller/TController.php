@@ -75,7 +75,6 @@ class TController extends AbstractController
 
                     $imgNodes = $crawler->filterXPath('//div[@class="img"]/img');
                     // dump($imgNodes);
-                    // 
                     
                     $i = 0;
                     foreach ($imgNodes as $e) {
@@ -87,6 +86,7 @@ class TController extends AbstractController
                         $image->setImage($e->getAttribute('src'));
                         $p->addImage($image);
                         $em->persist($image);
+                        $i++;
                     }
 
                     $i = 0;
