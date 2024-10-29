@@ -1,0 +1,2 @@
+curl -d "clmc=汽车&qymc=人杰" https://www.cn-truck.com/gonggao/listres
+curl "https://www.cn-truck.com/index.php?m=gonggao&c=index&a=showgg&clxh=XCL5186JSQ6D&pc=385&cx=0" 
