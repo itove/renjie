@@ -28,6 +28,8 @@ body{
   .section-2{
     img{
       margin-bottom: .5rem;
+      height: 294px;
+      object-fit: cover;
     }
   }
   .section-2,
