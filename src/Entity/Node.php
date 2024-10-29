@@ -82,7 +82,7 @@ class Node
     private ?File $qrFile = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $phone = null;
+    private ?string $phone = '0';
 
     #[ORM\Column(nullable: true)]
     #[Assert\Range(min: -90, max: 90)]
@@ -93,7 +93,7 @@ class Node
     private ?float $longitude = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $address = null;
+    private ?string $address = '0';
 
     #[ORM\Column(nullable: true)]
     private ?int $price = null;
