@@ -22,7 +22,11 @@
       <button class="btn btn-dark">产品类型:</button>
       {% for i in cates %}
       {% set btn_css = cate == i.id ? 'btn-danger' : 'btn-outline-danger' %}
+      {% if i.id == 1 %}
       <a href="{{ path('app_products', {'c': i.id, 'd': drive_type, 't': ton}) }}">
+      {% else %}
+      <a href="{{ path('app_products', {'c': i.id}) }}">
+      {% endif %}
         <button class="btn {{btn_css}}">{{ i.name }}</button>
       </a>
       {% endfor %}
