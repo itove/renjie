@@ -24,6 +24,8 @@ use App\Entity\Menu;
 use Doctrine\Persistence\ManagerRegistry;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -45,8 +47,8 @@ class DashboardController extends AbstractDashboardController
     {
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
         return $this->redirect($adminUrlGenerator
-                    ->setController(NodeCrudController::class)
-                    ->set('region', '3')
+                    ->setController(_N27::class)
+                    ->set('region', '27')
                     // ->setAction('detail')
                     // ->setEntityId(1)
                     ->generateUrl()
@@ -91,34 +93,56 @@ class DashboardController extends AbstractDashboardController
         ;
     }
 
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        return parent::configureUserMenu($user)
+            ->setName($user->getUsername() . ' (' . $user->getName() . ')')
+            // ->displayUserName(false)
+        ;
+    }
+
     public function configureMenuItems(): iterable
     {
         $pages = $this->doctrine->getRepository(Page::class)->findBy([], ['id' => 'ASC']);
         
         yield MenuItem::linkToUrl('Back to Site', 'fas fa-arrow-circle-left', '/');
         
-        // yield MenuItem::section('Content Management');
-        // yield MenuItem::linkToCrud('Product Management', 'fas fa-truck', Node::class)
-        //     ->setQueryParameter('region', 'product')
-        // ;
-        // yield MenuItem::linkToCrud('News', 'fas fa-newspaper', Node::class)
-        //     ->setQueryParameter('region', 'news')
-        // ;
-        
-        yield MenuItem::section('Content Management');
+        yield MenuItem::section('Content Management')
+            // ->setCssClass('test');
+            // ->setBadge('test')
+            // ->setPermission('ROLE_SUPER_ADMIN')
+        ;
         
         foreach ($pages as $p) {
-            $items = [];
+            if ($_ENV['USE_SUBMENU']) {
+                $items = [];
+            } else {
+                if (count($p->getRegions()) > 0) {
+                    yield MenuItem::section($p->getName());
+                }
+            }
+
             foreach ($p->getRegions() as $region) {
                 $item = MenuItem::linkToCrud($region->getName(), "fas fa-{$region->getIcon()}", Node::class)
                     ->setQueryParameter('region', $region->getId())
+                    ->setController(_N::class . $region->getId())
                 ;
-                array_push($items, $item);
+                if ($_ENV['USE_SUBMENU']) {
+                    array_push($items, $item);
+                } else {
+                    yield $item;
+                }
             }
-            yield MenuItem::subMenu($p->getName(), 'fa fa-file-image-o')->setSubItems($items);
+
+            if ($_ENV['USE_SUBMENU']) {
+                yield MenuItem::subMenu($p->getName(), 'fa fa-folder')->setSubItems($items);
+            }
         }
+
+        yield MenuItem::section('Feedback');
+        yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class);
         
-        yield MenuItem::section('');
+        yield MenuItem::section('Taxon Management');
         if ($_ENV['HAVE_ORDERS']) {
             yield MenuItem::linkToCrud('Order Management', 'fas fa-book-open', Order::class);
             yield MenuItem::linkToCrud('Refund Records', 'fas fa-book-open', Refund::class);
@@ -126,12 +150,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Menu Management', 'fas fa-link', Menu::class);
         yield MenuItem::linkToCrud('Tag Management', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Category Management', 'fas fa-table-cells-large', Category::class);
-        yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class)
-            ->setQueryParameter('type', 0)
-        ;
-        yield MenuItem::linkToCrud('Appointment', 'fas fa-message', Feedback::class)
-            ->setQueryParameter('type', 1)
-        ;
+
+        yield MenuItem::section('Region Management');
+        yield MenuItem::linkToCrud('Page Management', 'fas fa-cog', Page::class);
+        yield MenuItem::linkToCrud('Region Management', 'fas fa-cog', Region::class);
         
         // admin menu of regions
         // foreach ($this->regions as $region) {
@@ -147,8 +169,6 @@ class DashboardController extends AbstractDashboardController
             ->setEntityId($this->getUser()->getId())
             ;
         if ($this->isGranted('ROLE_ADMIN')) {
-            // yield MenuItem::linkToCrud('Category Management', 'fas fa-list', Category::class);
-            // yield MenuItem::linkToCrud('Tag Management', 'fas fa-list', Tag::class);
             yield MenuItem::linkToCrud('User Management', 'fas fa-users', User::class);
             if ($_ENV['IS_MULTILINGUAL'] || ! $this->conf) {
                 yield MenuItem::linkToCrud('Settings', 'fas fa-cog', Conf::class);
@@ -163,9 +183,7 @@ class DashboardController extends AbstractDashboardController
         
         if ($this->isGranted('ROLE_SUPER_ADMIN')) {
             yield MenuItem::section('Super Admin');
-            yield MenuItem::linkToCrud('Page', 'fas fa-cog', Page::class);
-            yield MenuItem::linkToCrud('Region', 'fas fa-cog', Region::class);
-            yield MenuItem::linkToCrud('Node', 'fas fa-cog', Node::class);
+            yield MenuItem::linkToCrud('All Nodes', 'fas fa-cog', Node::class);
             if ($_ENV['IS_MULTILINGUAL']) {
                 yield MenuItem::linkToCrud('Language', 'fas fa-cog', Language::class);
             }
