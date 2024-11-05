@@ -140,7 +140,12 @@ class DashboardController extends AbstractDashboardController
         }
 
         yield MenuItem::section('Feedback');
-        yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class);
+        yield MenuItem::linkToCrud('Feedback', 'fas fa-message', Feedback::class)
+            ->setQueryParameter('type', 0)
+        ;
+        yield MenuItem::linkToCrud('Appointment', 'fas fa-message', Feedback::class)
+            ->setQueryParameter('type', 1)
+        ;
         
         yield MenuItem::section('Taxon Management');
         if ($_ENV['HAVE_ORDERS']) {
